@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";/* Styles personnalisés */
+/* Styles personnalisés */
+body {
+    overflow-y: scroll; /* Active le défilement vertical */
+    height: 100vh; /* Assure que le body prend toute la hauteur de la vue */
+    
+}
+
+.hero {
+    background-image: url('/asset/j.png');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+.about img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faculties .card {
+    transition: transform 0.3s ease;
+}
+
+.faculties .card:hover {
+    transform: translateY(-10px);
+}
+
+.news .card {
+    transition: transform 0.3s ease;
+}
+
+.news .card:hover {
+    transform: translateY(-10px);
+}
+
+.footer {
+    background-color: #003366;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ff6600;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.newsletter-form .btn {
+    background-color: #ff6600;
+    border: none;
+}
+
+.newsletter-form .btn:hover {
+    background-color: #e65c00;
+}
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

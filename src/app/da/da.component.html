@@ -1,0 +1,260 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande d'admission - Futur étudiant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/assets/P.jpg'); /* Remplacez par le chemin de votre image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow: scroll;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar, .footer {
+            background-color: rgba(255, 105, 180, 0.9) !important;
+        }
+
+        .navbar-brand, .footer a {
+            color: white !important;
+        }
+
+        .container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.125); /* Fond semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background-color: #ff69b4;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .btn-pink {
+            background-color: #ff69b4;
+            border-color: #ff69b4;
+            color: white;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-pink:hover {
+            background-color: #ff1493;
+            border-color: #ff1493;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ff69b4;
+        }
+
+        /* Style du bouton Retour en haut */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none; /* Caché par défaut */
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #back-to-top:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+
+        /* Style du bouton Retour à la page précédente */
+        #back-to-previous {
+            position: fixed;
+            top: 20px; /* Positionné en haut de la page */
+            left: 20px; /* Positionné à gauche */
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ff69b4; /* Couleur de base */
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: opacity 0.5s ease, background-color 0.5s ease;
+            opacity: 1; /* Visible par défaut */
+        }
+
+        #back-to-previous:hover {
+            background-color: #ff1493; /* Changement de couleur au survol */
+        }
+    </style>
+</head>
+<body>
+   <div style="background-color: rgba(255, 105, 180, 0.9);">
+    <!-- Barre de navigation -->
+   
+    
+    <!-- Header -->
+    <header class="text-center py-5" style="color: #f8f9fa;">
+        <h1>Demande d'admission - Futur étudiant</h1>
+        <p class="lead">Bienvenue sur notre page dédiée aux futures étudiantes ! Trouvez ici toutes les informations nécessaires pour préparer votre demande d'admission.</p>
+    </header>
+   </div>
+    <!-- Header -->
+   
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <!-- Section Informations nécessaires -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-info-circle icon"></i>
+                        <h2 class="mb-0">Informations nécessaires pour votre demande d'admission</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Pour faciliter votre processus d'admission, voici une liste des renseignements et documents que vous devrez fournir :</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="fas fa-user me-2"></i>
+                                <strong>Informations personnelles :</strong> Nom, prénom, date de naissance, adresse, etc.
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-graduation-cap me-2"></i>
+                                <strong>Certificat du BAC, relevés de notes du BAC et bulletins annuels du lycée :</strong> Copies de vos diplômes et relevés de notes des études précédentes.
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-envelope me-2"></i>
+                                <strong>Lettre de motivation Adressée au président d'EM GABON :</strong> Une lettre expliquant pourquoi vous souhaitez intégrer notre établissement.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section Comment soumettre votre demande -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-clipboard-list icon"></i>
+                        <h2 class="mb-0">Comment soumettre votre demande</h2>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item">
+                                <i class="fas fa-file-alt me-2"></i>
+                                Rassemblez tous les documents requis.
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-pencil-alt me-2"></i>
+                                Remplissez le formulaire de demande en ligne sur notre page d'admission disponible ci-dessous.
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-upload me-2"></i>
+                                Téléversez les documents nécessaires.
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fas fa-check-circle me-2"></i>
+                                Soumettez votre demande avant la date limite.
+                            </li>
+                        </ol>
+                        <div class="text-center mt-4">
+                            <a href="https://emgu.duaux.com/inscription/#/" class="btn btn-pink btn-lg">
+                                <i class="fas fa-external-link-alt me-2"></i>
+                                Page d'admission
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" class="btn btn-pink" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bouton Retour à la page précédente -->
+    <button routerlink="/home" id="back-to-previous" class="btn btn-pink" title="Retour à la page précédente">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script pour les boutons flottants -->
+    <script>
+        // Gérer l'opacité et la couleur du bouton "Retour à la page précédente" en fonction du défilement
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            const backToTopButton = document.getElementById("back-to-top");
+            const backToPreviousButton = document.getElementById("back-to-previous");
+
+            // Calculer l'opacité en fonction du défilement
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            const opacity = 1 - Math.min(scrollY / 200, 1); // Disparaît progressivement après 200px de défilement
+
+            // Appliquer l'opacité et changer la couleur
+            backToPreviousButton.style.opacity = opacity;
+            backToPreviousButton.style.backgroundColor = `rgba(255, 105, 180, ${opacity})`; // Changement de couleur
+
+            // Afficher ou masquer le bouton "Retour en haut"
+            if (scrollY > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+
+        // Défilement vers le haut lorsque le bouton "Retour en haut" est cliqué
+        document.getElementById("back-to-top").addEventListener("click", function() {
+            document.body.scrollTop = 0; // Pour Safari
+            document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+        });
+
+        // Retour à la page précédente lorsque le bouton "Retour à la page précédente" est cliqué
+        document.getElementById("back-to-previous").addEventListener("click", function() {
+            window.history.back();
+        });
+    </script>
+</body>

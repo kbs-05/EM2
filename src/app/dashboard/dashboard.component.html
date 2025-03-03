@@ -1,0 +1,398 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM GABON </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Styles CSS intégrés -->
+    
+    <style>
+       
+        /* Styles personnalisés */
+        body {
+            overflow-y: scroll; /* Active le défilement vertical */
+            height: 100vh; /* Assure que le body prend toute la hauteur de la vue */
+        }
+        .hero {
+            background-image: url('/asset/j.png');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+        }
+
+        .about img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculties .card {
+            transition: transform 0.3s ease;
+        }
+
+        .faculties .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news .card {
+            transition: transform 0.3s ease;
+        }
+
+        .news .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .footer {
+            background-color: #003366;
+            color: #fff;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ff6600;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .newsletter-form .btn {
+            background-color: #ff6600;
+            border: none;
+        }
+
+        .newsletter-form .btn:hover {
+            background-color: #e65c00;
+        }
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .icon-hover-effect {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .icon-hover-effect:hover,
+        .icon-hover-effect:active {
+            transform: rotate(360deg) scale(1.1); /* Rotation + zoom */
+            color: #e91e63; /* Changement de couleur */
+        }
+        .icon-hover-effect:hover i,
+        .icon-hover-effect:active i {
+            color: #ff5722; /* Changement de couleur de l'icône */
+        }
+        .image-container {
+            height: 200px; /* Hauteur fixe pour toutes les images */
+            overflow: hidden; /* Cache les parties de l'image qui dépassent */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Style pour les images */
+        .fixed-image {
+            width: 100%; /* Largeur de 100% du conteneur */
+            height: 100%; /* Hauteur de 100% du conteneur */
+            object-fit: cover; /* Redimensionne l'image pour couvrir tout l'espace sans déformation */
+        }
+        /* Style des cartes */
+        .icon-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Effet au survol des cartes */
+        .icon-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style des icônes */
+        .icon-hover-effect {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Effet de rotation et zoom au survol des icônes */
+        .icon-hover-effect:hover,
+        .icon-hover-effect:active {
+            transform: rotate(360deg) scale(1.1); /* Rotation de 360 degrés et légère augmentation de taille */
+            color: #e91e63; /* Changement de couleur au survol */
+        }
+
+        .icon-hover-effect:hover i,
+        .icon-hover-effect:active i {
+            color: #ff5722; /* Changement de couleur de l'icône au survol */
+        }
+         .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff; /* Couleur primaire */
+        }
+
+        .counter.animated {
+            color: #ff5722; /* Changement de couleur pendant l'animation */
+        }
+        /* Effet de rotation et zoom au survol des images */
+        
+    </style>
+    
+    
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="bg-light py-3">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Logo aligné à gauche -->
+            <div class="logo me-auto">
+              <img src="/assets/J.png" alt="Logo de l'université" height="50">
+            </div>
+      
+            <!-- Boutons de navigation alignés à droite -->
+            <div class="d-flex gap-2">
+              <a routerLink="/dashboard" class="btn btn-outline-primary">Accueil</a>
+              <a routerLink="/da" class="btn btn-outline-primary">Étudiant</a>
+              <a routerLink="/faq" class="btn btn-outline-primary">À propos/FAQ</a>
+              <a routerLink="/contact" class="btn btn-outline-primary">Contactez-nous</a>
+            </div>
+          </div>
+        </div>
+      </header>
+    <!-- Bannière principale -->
+    <section class="hero bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Bienvenue à EM GABON</h1>
+            <p class="lead">Un lieu d'excellence, d'innovation et de diversité.</p>
+            
+        </div>
+    </section>
+    <section class="about py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="display-5">À propos d' EM GABON</h2>
+                    <p class="lead">EM GABON est un établissement d'enseignement supérieur reconnu pour son excellence académique, ses recherches innovantes et son engagement envers la société. Fondée en [année], elle accueille plus de 500 étudiants chaque année.</p>
+                    <div class="row mt-4">
+                        <!-- Carte Étudiants -->
+                        <div class="col-md-4 text-center">
+                            <div class="card icon-card">
+                                <div class="card-body">
+                                    <div class="icon-hover-effect">
+                                        <i class="fas fa-user-graduate fa-5x text-primary"></i>
+                                    </div>
+                                    <h3 class="text-primary counter" >3000</h3>
+                                    <p>Étudiants</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Carte Programmes d'études -->
+                        <div class="col-md-4 text-center">
+                            <div class="card icon-card">
+                                <div class="card-body">
+                                    <!-- Icône de livre -->
+                                    <div class="icon-hover-effect">
+                                        <i class="fas fa-book fa-5x text-primary"></i>
+                                    </div>
+                                    <h3 class="text-primary counter" >150</h3>
+                                    <p>Programmes d'études</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Carte Partenariats internationaux -->
+                        <div class="col-md-4 text-center">
+                            <div class="card icon-card">
+                                <div class="card-body">
+                                    <div class="icon-hover-effect">
+                                        <i class="fas fa-building fa-5x text-primary"></i>
+                                    </div>
+                                    <h3 class="text-primary counter" >20</h3>
+                                    <p>Partenariats internationaux</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="col-md-6">
+                    <img src="/assets/u.jpg" class="img-fluid" alt="EM GABON">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Facultés et composantes -->
+    <section class="faculties bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos écoles et instituts</h2>
+            <div class="row">
+                <!-- Carte École d'Ingénieurs -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/A.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">École d'Ingénieurs</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carte École de Management, Gestion et Economie -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/B.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">École de Management, Gestion et Economie</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carte Institut d'Etudes Juridiques -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/C.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">Institut d'Etudes Juridiques</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carte Institut d'Audiovisuel & Cinéma -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/D.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">Institut d'Audiovisuel & Cinéma</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carte École de Santé -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/F.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">École de Santé</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carte Institut D'Agronomie et de Sécurité Alimentaire -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <img src="/assets/G.jpg" style="border-radius: 70%; height:81px;">
+                            <h3 class="card-title">Institut D'Agronomie et de Sécurité Alimentaire</h3>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    
+   <!-- Actualités -->
+   <section class="news py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Actualités et événements</h2>
+        <div class="row">
+            <!-- Carte 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="image-container">
+                        <img src="/assets/X.jpg" class="card-img-top img-fluid fixed-image" alt="Actualité 1">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Activité des élèves d'Agronomie</h3>
+                        <p class="card-text">Pour leur formation pratique dans le cadre du cours de production porcine, les étudiants de L3 spécialité production animale, ont effectué leur journée de travail dans une ferme du Grand Libreville, partenaire de notre Université.</p>
+                        <a href="#" class="btn btn-primary">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="image-container">
+                        <img src="/assets/T.jpg" class="card-img-top img-fluid fixed-image" alt="Actualité 2">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">TEAM BASKET-BALL EM GABON-UNIVERSITÉ</h3>
+                        <p class="card-text">TEAM BASKET-BALL EM GABON-UNIVERSITÉ A ÉCRASÉ LA MODESTE ÉQUIPE DE L’UNIVERSITÉ NUMÉRIQUE DU GABON PAR UN SCORE SANS APPEL DE 158 À 24.</p>
+                        <a href="#" class="btn btn-primary">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="image-container">
+                        <img src="/assets/N.jpg" class="card-img-top img-fluid fixed-image" alt="Actualité 3">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Séance de travail intense</h3>
+                        <p class="card-text">Ce samedi 15 février 2025, dans l’amphithéâtre Professeur Albert ONDO OSSA de l’EM GABON-UNIVERSITÉ entre les responsables de l’EM GABON-UNIVERSITÉ et les agents civils de l’État des catégories A2 et B1 sans bac souhaitant s’inscrire en Licence ou en Master à l’EM GABON-UNIVERSITÉ conformément à l’orientation de la commission de la Fonction publique.</p>
+                        <a href="#" class="btn btn-primary">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Pied de page -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4>Contact</h4>
+                    <p>EM GABON Université</p>
+                    <p>Mindounbé2 au pavé</p>
+                    <p>75000 Paris, France</p>
+                    <p> 074 35 77 52</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Réseaux sociaux</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+               
+            </div>
+           
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
