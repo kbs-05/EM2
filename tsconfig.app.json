@@ -10,6 +10,8 @@
     "src/main.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/environments/**/*.ts"  // Ajout de l'inclusion du dossier environments
   ]
 }
+
