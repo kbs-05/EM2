@@ -1,1 +1,225 @@
-<p>eil works!</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecole d'Ingénieurs de Libreville (EIL)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        h3 {
+            background-color: rgb(60, 0, 226);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            flex: 1 1 calc(50% - 40px); /* Deux cartes par ligne sur les grands écrans */
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(60, 0, 226);
+            text-align: center;
+            color: white;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%; /* L'image s'adapte à la largeur de l'écran */
+            height: auto;
+        }
+
+        /* Bouton Retour fixe */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .back-button a {
+            background-color: rgb(60, 0, 226);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Media Queries pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Une seule carte par ligne sur les petits écrans */
+            }
+            .card {
+                flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+            }
+            h3 {
+                font-size: 1.2rem; /* Taille de police réduite pour les petits écrans */
+            }
+            table {
+                font-size: 0.9rem; /* Taille de police réduite pour les tables */
+            }
+            .back-button a {
+                padding: 8px 16px; /* Taille réduite pour le bouton */
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1rem; /* Taille de police encore plus petite pour les très petits écrans */
+            }
+            table {
+                font-size: 0.8rem; /* Taille de police réduite pour les très petits écrans */
+            }
+            .back-button a {
+                padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton Retour fixe -->
+    <div class="back-button">
+        <a href="javascript:history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <img src="../assets/A.jpg" alt="Ecole d'Ingénieurs de Libreville">
+
+    <div>
+        <p><strong style="color: rgb(60, 0, 226);">L'ECOLE D'INGENIEURS DE LIBREVILLE (EIL)</strong> est la septième composante du groupe EM GABON-UNIVERSITE, spécialisée dans les domaines du <strong style="color: rgb(60, 0, 226);">GENIE ELECTRIQUE, DE L'EAU, DES ENERGIES RENOUVELABLES, DE L'INFORMATIQUE ET DES TECHNOLOGIES NUMERIQUES, DES RESEAUX ET TELECOMMUNICATIONS.</strong> Le titre d'ingénieur délivré par l'EIL, reconnu par l'Etat gabonais, positionne le titulaire comme apte à aborder toute problématique liée aux programmes de formations délivrés. Le diplômé dispose d'un savoir généraliste étendu, mais également de compétences très spécialisées dans les domaines de formation de l'EIL.</p>
+    </div>
+
+    <h3><strong>OFFRE DE FORMATION</strong></h3>
+
+    <div class="container">
+        <div class="card">
+            <h3><strong>LICENCE PROFESSIONNELLE/FONDAMENTALE</strong></h3>
+            <div>
+                <p>Energies renouvelables</p>
+                <p>Génie chimique</p>
+                <p>Génie civil</p>
+                <p>Génie électrique</p>
+                <p>Génie électromécanique</p>
+                <p>Génie informatique</p>
+                <p>Génie mécanique</p>
+                <p>Génie réseaux et télécommunications</p>
+                <p>Mines et métallurgie</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><strong>MASTER PROFESSIONNEL/RECHERCHE et DOCTORAT</strong></h3>
+            <div>
+                <p>Energies renouvelables</p>
+                <p>Génie chimique</p>
+                <p>Génie civil</p>
+                <p>Génie électrique</p>
+                <p>Génie électromécanique</p>
+                <p>Génie informatique</p>
+                <p>Génie mécanique</p>
+                <p>Génie réseaux et télécommunications</p>
+                <p>Mines et métallurgie</p>
+            </div>
+        </div>
+    </div>
+
+    <h3><strong>GRILLE TARIFAIRE</strong></h3>
+
+    <table>
+        <tr style="color: white;">
+            <th>CONDITIONS D’ADMISSION</th>
+            <th>DIPLÔMES</th>
+            <th>NIVEAUX</th>
+            <th>FRAIS D’INSCRIPTION</th>
+            <th>FRAIS DE SCOLARITE</th>
+            <th>DEBOUCHES PROFESSIONNELS</th>
+        </tr>
+        <tr>
+            <td rowspan="12">TOUTE série de BAC et sur examen de dossier</td>
+            <td rowspan="3">LICENCE PROFESSIONNELLE/ FORDAMENTALE (BAC + 3)</td>
+            <td>LICENCE 1</td>
+            <td>50 000</td>
+            <td>900 000 (90 000/mois)</td>
+            <td rowspan="12">- Secteur public<br>- Secteur privé<br>- Auto emploi</td>
+        </tr>
+        <tr>
+            <td>LICENCE 2</td>
+            <td>50 000</td>
+            <td>950 000 (95 000/mois)</td>
+        </tr>
+        <tr>
+            <td>LICENCE 3</td>
+            <td>50 000</td>
+            <td>1 000 000 (100 000/mois)<br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER PROFESSIONNEL (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 400 000 (140 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+            
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 400 000 (140 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER RECHERCHE (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 600 000 (160 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 600 000 (160 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="3">DOCTORAT (BAC + 8)</td>
+            <td>D1</td>
+            <td>200 000</td>
+            <td>1 600 000 (160 000/mois)</td>
+           
+        </tr>
+        <tr>
+            <td>D2</td>
+            <td>200 000</td>
+            <td>1 900 000 (190 000/mois)</td>
+        </tr>
+        <tr>
+            <td>D3</td>
+            <td>200 000</td>
+            <td>2 500 000 (250 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+    </table>
+
+</body>

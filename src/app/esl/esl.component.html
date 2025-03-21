@@ -1,1 +1,240 @@
-<p>esl works!</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOLE DE SANTE DE LIBREVILLE(ESL)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+          h3 {
+            background-color: #72ff65;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            flex: 1 1 calc(50% - 40px); /* Deux cartes par ligne sur les grands écrans */
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%; /* L'image s'adapte à la largeur de l'écran */
+            height: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #72ff65;
+            text-align: center;
+            color: white;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%; /* L'image s'adapte à la largeur de l'écran */
+            height: auto;
+        }
+
+        /* Bouton Retour fixe */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .back-button a {
+            background-color: #72ff65;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Media Queries pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Une seule carte par ligne sur les petits écrans */
+            }
+            .card {
+                flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+            }
+            h3 {
+                font-size: 1.2rem; /* Taille de police réduite pour les petits écrans */
+            }
+            table {
+                font-size: 0.9rem; /* Taille de police réduite pour les tables */
+            }
+            .back-button a {
+                padding: 8px 16px; /* Taille réduite pour le bouton */
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1rem; /* Taille de police encore plus petite pour les très petits écrans */
+            }
+            table {
+                font-size: 0.8rem; /* Taille de police réduite pour les très petits écrans */
+            }
+            .back-button a {
+                padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- Bouton Retour -->
+        <div class="back-button">
+            <a href="javascript:history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    
+        <!-- Image centrée et réduite -->
+        <img src="../assets/F.jpg" alt="Ecole d'Ingénieurs de Libreville">
+    
+        <div>
+            <p><strong style="color: #72ff65;">L'ECOLE DE SANTE DE LIBREVILLE (ESL)</strong> est la deuxième composante du Groupe EM GABON-UNIVERSITE. Elle est dédiée à la formation initiale et continue, en présentiel et en distancel, dans les champs disciplinainaire des<strong style="color: #000000;">SCIENCES DE LA SANTE</strong> façon génerale. Les missions de l'ESL consistent, particulièrement, à:</p>
+            
+            <p>-la Formation Initiale et Continue (médicale et paramédicale);</p>
+            <p>-la Recherche Scientifique (laboratoire);</p>
+            <p>la Promotion de la santé(santé publique).</p>
+        </div>
+        <h3><strong>OFFRE DE FORMATION</strong></h3>
+
+        <div class="container">
+            <div class="card">
+                <h3><strong>LICENCE PROFESSIONNELLE/FONDAMENTALE</strong><h5>Sciences de la Santé</h5></h3>
+                
+                <div >
+                
+                    <P>Biologie Médicale </P>
+                    <P>Génie Biomédical</P>
+                    <P>Kinésithérapie(réeducation)</P>
+                    <P>Orthophonie</P>
+                    <P>Pharmacie</P>
+                    <P>Sage-Femme(Maïeutique)</P>
+                    <P>Santé Publique</P>
+                    <P>Sciences infirmières</P>
+                    
+                </div>
+            </div>
+    
+            <div class="card">
+                <h3><strong>MASTER PROFESSIONNEL/RECHERCHE et DOCTORAT</strong><h5>Sciences de la Santé</h5></h3>
+                <div>
+                   <p>Biologie Médicale</p>
+                   <p>Kinésithérapie(réeducation)</p>
+                   <p>Pharmacie</p>
+                   <p>Sage-Femme(Maïeutique)</p>
+                   <p>Santé Publique</p>
+                   <p>Sciences infirmières</p>
+                   
+                </div>
+            </div>
+        </div>
+       
+      
+    </div>
+
+    <h3><strong>GRILLE TARIFAIRE</strong></h3>
+
+    <table>
+        <tr style="color: white;">
+            <th>CONDITIONS D’ADMISSION</th>
+            <th>DIPLÔMES</th>
+            <th>NIVEAUX</th>
+            <th>FRAIS D’INSCRIPTION</th>
+            <th>FRAIS DE SCOLARITE</th>
+            <th>DEBOUCHES PROFESSIONNELS</th>
+        </tr>
+        <tr>
+            <td rowspan="12">TOUTE série de BAC et sur examen de dossier</td>
+            <td rowspan="3">LICENCE PROFESSIONNELLE/ FORDAMENTALE (BAC + 3)</td>
+            <td>LICENCE 1</td>
+            <td>50 000</td>
+            <td>900 000 (90 000/mois)</td>
+            <td rowspan="12">- Secteur public<br>- Secteur privé<br>- Auto emploi</td>
+        </tr>
+        <tr>
+            <td>LICENCE 2</td>
+            <td>50 000</td>
+            <td>950 000 (95 000/mois)</td>
+        </tr>
+        <tr>
+            <td>LICENCE 3</td>
+            <td>50 000</td>
+            <td>1 000 000 (100 000/mois)<br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER PROFESSIONNEL (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 400 000 (140 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+            
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 500 000 (150 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER RECHERCHE (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 500 000 (150 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 600 000 (160 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="3">DOCTORAT (BAC + 8)</td>
+            <td>D1</td>
+            <td>200 000</td>
+            <td>1 600 000 (160 000/mois)</td>
+           
+        </tr>
+        <tr>
+            <td>D2</td>
+            <td>200 000</td>
+            <td>1 900 000 (190 000/mois)</td>
+        </tr>
+        <tr>
+            <td>D3</td>
+            <td>200 000</td>
+            <td>2 500 000 (250 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+    </table>
+
+
+</body>
