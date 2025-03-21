@@ -30,4 +30,5 @@
 .z-index-1 {
   position: relative;
   z-index: 1;
+  transform: translate(10px, 110px);
 }

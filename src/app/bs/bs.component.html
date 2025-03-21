@@ -38,7 +38,7 @@
         th, td {
             border: 1px solid black;
             padding: 8px;
-            text-align: left;
+            text-align: center;
         }
         th {
             background-color: #3498db;
@@ -116,6 +116,11 @@
             img {
                 max-width: 90%; /* Image encore plus large sur les très petits écrans */
             }
+        }
+          /* Ajoutez ce style pour élargir la colonne "NIVEAUX" */
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 150px; /* Ajustez cette valeur selon vos besoins */
         }
        
     </style>

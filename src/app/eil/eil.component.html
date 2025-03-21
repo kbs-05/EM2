@@ -38,7 +38,7 @@
         th, td {
             border: 1px solid black;
             padding: 8px;
-            text-align: left;
+            text-align: center;
         }
         th {
             background-color: rgb(60, 0, 226);
@@ -100,6 +100,11 @@
                 padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
                 font-size: 0.8rem;
             }
+        }
+          /* Ajoutez ce style pour élargir la colonne "NIVEAUX" */
+        th:nth-child(3),
+        td:nth-child(3) {
+                width: 150px; /* Ajustez cette valeur selon vos besoins */
         }
     </style>
 </head>
