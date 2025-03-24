@@ -1,1 +1,234 @@
-<p>iac works!</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSTITUT D'ETUDES JURIDIQUES ET SCIENCE POLITIQUE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        h3 {
+            background-color: #0841a4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            flex: 1 1 calc(50% - 40px); /* Deux cartes par ligne sur les grands écrans */
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table > * > * {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color:#0841a4;
+            text-align: center;
+            color: white;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 40%; /* L'image s'adapte à la largeur de l'écran */
+            height: auto;
+        }
+
+        /* Bouton Retour fixe */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .back-button a {
+            background-color: #0841a4;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Media Queries pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Une seule carte par ligne sur les petits écrans */
+            }
+            .card {
+                flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+            }
+            h3 {
+                font-size: 1.2rem; /* Taille de police réduite pour les petits écrans */
+            }
+            .table > * > * {
+                font-size: 0.9rem; /* Taille de police réduite pour les tables */
+            }
+            .back-button a {
+                padding: 8px 16px; /* Taille réduite pour le bouton */
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1rem; /* Taille de police encore plus petite pour les très petits écrans */
+            }
+            .table > * > * {
+                font-size: 0.8rem; /* Taille de police réduite pour les très petits écrans */
+            }
+            .back-button a {
+                padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
+                font-size: 0.8rem;
+            }
+        }
+          /* Ajoutez ce style pour élargir la colonne "NIVEAUX" */
+        th:nth-child(3),
+        td:nth-child(3) {
+                width: 150px; /* Ajustez cette valeur selon vos besoins */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton Retour fixe -->
+    <div class="back-button">
+        <a href="javascript:history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <img src="../assets/D.jpg" alt="Ecole d'Ingénieurs de Libreville">
+
+    <div>
+        <p><strong style="color: #0841a4;">L'INSTITUT PHILIPPE MAURY DE L'AUDIOVISUEL ET DU CINEMA (IPMAC)</strong> ,quatrième composante du Groupe EM GABON-UNIVERSITE, est dédié à la formation initiale et continue,en présentiel et en distanciel, dans la  <strong style="color: rgb(15, 15, 15);">COMMUNICATION, DU JOURNALISME, DE L'AUDIOVISUEL ET DU CINEMA.</strong>Le programme d'enseignement professionnalisant de l'IPMAC est orienté dans les stratégies de communication,la conception et la mise en forme de programmes et de plans d'action à vocation journalistique ; la réalisation,l'image, le son, le montage, la production, l'assistant de réalisation,l'écriture des scenario, sur le plan audiovisuel et cinématographique, etc. Dans ses domaines de compétence, l'IPMAC exerce une triple mission d'enseignement supérieur, de formation professionnelle et de recherche scientifique.</p>
+    </div>
+
+    <h3><strong>OFFRE DE FORMATION</strong></h3>
+
+    <div class="container">
+        <div class="card">
+            <h3><strong>LICENCE PROFESSIONNELLE/FONDAMENTALE</strong><h5>Communication - Journalalisme - Audiovisuel - Cinéma</h5></h3>
+            <div>
+                <p>Communication</p>
+                <p>Communication Digitale</p>
+                <p>Ecriture et Réalisation</p>
+                <p>Image</p>
+                <p>Journalisme</p>
+                <p>Montage et Postproduction</p>
+                <p>Production Audiovisuelle et Cinématographique</p>
+                <p>Réalisation Télévision</p>
+                <p>Son et Postproduction</p>
+                <p>Webmastering</p>
+            </div>
+            
+        </div>
+
+        <div class="card">
+            <h3><strong>MASTER PROFESSIONNEL/RECHERCHE et DOCTORAT</strong><h5>Communication - Journalalisme - Audiovisuel - Cinéma</h5></h3>
+            <div>
+                <p>Communication</p>
+                <p>Communication Digitale</p>
+                <p>Ecriture et Réalisation</p>
+                <p>Image</p>
+                <p>Journalisme</p>
+                <p>Montage et Postproduction</p>
+                <p>Production Audiovisuelle et Cinématographique</p>
+                <p>Réalisation Télévision</p>
+                <p>Son et Postproduction</p>
+                <p>Webmastering</p>
+            </div>
+        </div>
+    </div>
+
+    <h3><strong>GRILLE TARIFAIRE</strong></h3>
+
+    <table>
+        <tr style="color: white;">
+            <th>CONDITIONS D’ADMISSION</th>
+            <th>DIPLÔMES</th>
+            <th>NIVEAUX</th>
+            <th>FRAIS D’INSCRIPTION</th>
+            <th>FRAIS DE SCOLARITE</th>
+            <th>DEBOUCHES PROFESSIONNELS</th>
+        </tr>
+        <tr>
+            <td rowspan="12">TOUTE série de BAC et sur examen de dossier</td>
+            <td rowspan="3">LICENCE PROFESSIONNELLE/ FORDAMENTALE (BAC + 3)</td>
+            <td>LICENCE 1</td>
+            <td>50 000</td>
+            <td>800 000 (80 000/mois)</td>
+            <td rowspan="12">- Secteur public<br>- Secteur privé<br>- Auto emploi</td>
+        </tr>
+        <tr>
+            <td>LICENCE 2</td>
+            <td>50 000</td>
+            <td>900 000 (90 000/mois)</td>
+        </tr>
+        <tr>
+            <td>LICENCE 3</td>
+            <td>50 000</td>
+            <td>1 000 000 (100 000/mois)<br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER PROFESSIONNEL (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 200 000 (120 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+            
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 400 000 (140 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="2">MASTER RECHERCHE (BAC + 5)</td>
+            <td>MASTER 1</td>
+            <td>100 000</td>
+            <td>1 600 000 (160 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td>MASTER 2</td>
+            <td>100 000</td>
+            <td>1 600 000 (160 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+        <tr>
+            <td rowspan="3">DOCTORAT (BAC + 8)</td>
+            <td>D1</td>
+            <td>200 000</td>
+            <td>1 600 000 (160 000/mois)</td>
+           
+        </tr>
+        <tr>
+            <td>D2</td>
+            <td>200 000</td>
+            <td>1 900 000 (190 000/mois)</td>
+        </tr>
+        <tr>
+            <td>D3</td>
+            <td>200 000</td>
+            <td>2 500 000 (250 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+        </tr>
+    </table>
+
+</body>
+

@@ -1,52 +1,168 @@
-<body>
-  <!-- Section principale avec image de fond -->
-  <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
-    <!-- Overlay sombre -->
-    <div class="overlay"></div>
-
-    <!-- Contenu centré -->
-    <div class="container position-relative z-index-1">
-      <!-- Logo -->
-      <img src="assets/J.png" alt="Logo" class="mb-4" style="width: 150px; height: auto;">
-
-      <!-- Texte -->
-      <h1 class="display-4 mb-4" style="font-weight: 700;">Bienvenue à EM-GABON</h1>
-
-      <!-- Bouton -->
-      <a routerLink="/dashboard" class="btn btn-primary btn-lg">Découvrir nos programmes</a>
-    </div>
-  </section>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Styles pour la section hero */
-    .hero-section {
-      position: relative;
-      background-image: url('/assets/M.jpg'); /* Chemin de l'image de fond */
-      background-size: cover; /* L'image couvre toute la section */
-      background-position: center; /* Centre l'image */
-      height: 100vh; /* Hauteur de la section (100% de la hauteur de l'écran) */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
+      body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        h3 {
+            background-color: #0dcaf0;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            flex: 1 1 calc(50% - 40px); /* Deux cartes par ligne sur les grands écrans */
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #0dcaf0;
+            text-align: center;
+            color: white;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 30%; /* L'image s'adapte à la largeur de l'écran */
+            height: auto;
+        }
 
-    /* Overlay sombre pour améliorer la lisibilité du texte */
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Couleur noire avec 50% d'opacité */
-      z-index: 1; /* Place l'overlay au-dessus de l'image de fond */
-    }
+        /* Bouton Retour fixe */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .back-button a {
+            background-color: #0dcaf0;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
 
-    /* Contenu centré */
-    .container {
-      position: relative;
-      z-index: 2; /* Place le contenu au-dessus de l'overlay */
-    }
+        /* Media Queries pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Une seule carte par ligne sur les petits écrans */
+            }
+            .card {
+                flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+            }
+            h3 {
+                font-size: 1.2rem; /* Taille de police réduite pour les petits écrans */
+            }
+            table {
+                font-size: 0.9rem; /* Taille de police réduite pour les tables */
+            }
+            .back-button a {
+                padding: 8px 16px; /* Taille réduite pour le bouton */
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1rem; /* Taille de police encore plus petite pour les très petits écrans */
+            }
+            table {
+                font-size: 0.8rem; /* Taille de police réduite pour les très petits écrans */
+            }
+            .back-button a {
+                padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
+                font-size: 0.8rem;
+            }
+        }
+          /* Ajoutez ce style pour élargir la colonne "NIVEAUX" */
+        th:nth-child(3),
+        td:nth-child(3) {
+                width: 150px; /* Ajustez cette valeur selon vos besoins */
+        }
   </style>
+</head>
+<body>
+  <!-- Bouton Retour fixe -->
+  <div class="back-button">
+      <a href="javascript:history.back()">
+          <i class="fas fa-arrow-left"></i>
+      </a>
+  </div>
+
+  <img src="../assets/H.jpg" alt="Ecole d'Ingénieurs de Libreville">
+
+  <div>
+      <p><strong style="color: #0dcaf0;">L'ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</strong> offre une formation par la recherche, à la et à l'innovation,dans la logique du système Licence-Master-Doctorat(LMD).Elle est placée sous la direction d'un enseignant de rang magistral nommé pour une durée de cinq(5) ans par décision du président du Groupe. L'Ecole Doctorale du Groupe EM GABON-UNIVERSITE a lancé ses formations doctorales en février 2022. Elle est organisée par domaine, mention et spécialités selon les offres de formation et comprend les Unités de Formation Doctorale (UFD)suivantes:</p>
+      <p>UFD Droit et Science Politique;<br>UFD Management, Gestion et Economie;<br>UFD Santé et Envirpnnement;<br>UFD Agriculture, Agronomie, Agro-industries, Alimentation et Environnement;<br>UFD Arts, Spécialité Communiction, Journalisme, Cinématographie et Audiovisuel.</p>
+      
+  </div>
+
+  
+
+  <h3><strong>GRILLE TARIFAIRE</strong></h3>
+
+  <table>
+      <tr style="color: white;">
+          <th>CONDITIONS D’ADMISSION</th>
+          <th>DIPLÔMES</th>
+          <th>NIVEAUX</th>
+          <th>FRAIS D’INSCRIPTION</th>
+          <th>FRAIS DE SCOLARITE</th>
+          <th>DEBOUCHES PROFESSIONNELS</th>
+      </tr>
+      <tr>
+          <td rowspan="12">MASTER<p>sur examen de dossier</p></td>
+          <td rowspan="12">DOCTORAT</td>
+          <td>MASTER 2 </td>
+          <td>100 000</td>
+          <td>1 600 000 (160 000/mois)</td>
+          <td rowspan="12">- Secteur public(Fonctionnaire)<br>- Secteur privé<br>- Auto emploi</td>
+      </tr>
+      <tr>
+          <td>D1</td>
+          <td>200 000</td>
+          <td>1 600 000 (160 000/mois)</td>
+      </tr>
+      <tr>
+          <td>D2</td>
+          <td>200 000</td>
+          <td>1 900 000 (190 000/mois)</td>
+      </tr>
+      <tr>
+          
+          <td>D3</td>
+          <td>200 000</td>
+          <td>2 500 000 (250 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
+          
+      </tr>
+     
+  </table>
+
 </body>

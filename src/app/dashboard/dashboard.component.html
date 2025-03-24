@@ -7,24 +7,31 @@
     <meta name="keywords" content="EM GABON, université, Gabon, éducation, facultés, actualités">
     <meta name="author" content="EM GABON">
     <title>EM GABON</title>
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+   
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Styles CSS intégrés -->
+   
     <style>
         :root {
-            --primary-color: #003366; /* Bleu foncé */
-            --secondary-color: #ff6600; /* Orange */
-            --background-color: #f8f9fa; /* Gris clair */
+            --primary-color: #003366; 
+            --secondary-color: #ff6600; 
+            --background-color: #f8f9fa; 
         }
 
         body {
             overflow-y: scroll;
             height: 100vh;
             scroll-behavior: smooth;
-            padding-top: 0; /* Suppression de la marge en haut */
-            margin: 0; /* Suppression des marges par défaut */
+            padding-top: 0;
+            margin: 0;
+            -ms-overflow-style: none;  /* IE et Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+/* Pour Chrome, Safari et Opera */
+        body::-webkit-scrollbar {
+            display: none;
         }
 
         /* Styles pour la navbar */
@@ -249,14 +256,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="transform: translate(10px, 3px);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Logo dans la navbar -->
             <a class="navbar-brand" href="#">
                 <i class="fas fa-university"></i> EM GABON
             </a>
             <!-- Bouton du menu pour les écrans mobiles -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="transform: translate(-315px, -39px);">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+           
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
