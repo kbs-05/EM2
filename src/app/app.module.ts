@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // Importez RouterModule
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Ajouté pour ngModel
+import { HttpClientModule } from '@angular/common/http'; // Ajouté pour les requêtes HTTP
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,7 +30,7 @@ import { EDComponent } from './ed/ed.component';
     HomeComponent,
     DashboardComponent,
     DAComponent,
-    FaqComponent,
+   
     ContactComponent,
     EILComponent,
     BSComponent,
@@ -36,20 +38,22 @@ import { EDComponent } from './ed/ed.component';
     IACComponent,
     ESLComponent,
     IASAComponent,
-    EDComponent
+    EDComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule, // Ajouté ici
+    HttpClientModule, // Ajouté ici
     AppRoutingModule,
     RouterModule.forRoot([])
   ],
   providers: [
-    provideRouter([]), // Remplacez par vos routes si nécessaire
-    provideFirebaseApp(() => initializeApp()), // Initialise Firebase
-    provideFirestore(() => getFirestore()), // Provider pour Firestore
-    provideAuth(() => getAuth()), // Provider pour l'authentification
-    provideStorage(() => getStorage()), // Provider pour le stockage
-    provideImgixLoader('https://yourdomain.imgix.net'), // Remplacez par votre CDN d'images
+    provideRouter([]),
+    provideFirebaseApp(() => initializeApp({ /* votre configuration Firebase */ })),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
+    provideImgixLoader('https://yourdomain.imgix.net'),
   ],
   bootstrap: [AppComponent]
 })
