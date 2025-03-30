@@ -28,7 +28,7 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
     "useDefineForClassFields": false,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": false
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"],

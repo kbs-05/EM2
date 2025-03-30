@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +5,13 @@
     <meta name="keywords" content="EM GABON, université, Gabon, éducation, facultés, actualités">
     <meta name="author" content="EM GABON">
     <title>EM GABON</title>
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-   
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
     <style>
         :root {
             --primary-color: #003366; 
@@ -24,35 +25,53 @@
             scroll-behavior: smooth;
             padding-top: 0;
             margin: 0;
-            -ms-overflow-style: none;  /* IE et Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-/* Pour Chrome, Safari et Opera */
         body::-webkit-scrollbar {
             display: none;
         }
 
-        /* Styles pour la navbar */
+        /* Navbar améliorée */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #0a58ca; /* Couleur bleue */
+            background: linear-gradient(135deg, #0a58ca 0%, #003366 100%);
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            opacity: 1; /* Pas de transparence */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 88, 202, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
 
         .navbar-brand {
             color: #fff !important;
             font-size: 1.5rem;
             font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
         }
 
         .navbar-brand i {
             margin-right: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .navbar-brand:hover i {
+            transform: rotate(360deg);
         }
 
         .navbar-nav .nav-link {
@@ -62,33 +81,53 @@
             padding: 10px 20px;
             margin: 0 5px;
             border-radius: 5px;
-            background-color: var(--primary-color);
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: rgba(0, 51, 102, 0.7);
+            transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            left: 100%;
         }
 
         .navbar-nav .nav-link:hover {
             background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }   
 
         .navbar-nav .nav-link .icon-menu {
             margin-right: 10px;
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        /* Logo dans la navbar */
+        .navbar-nav .nav-link:hover .icon-menu {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
         .navbar-logo {
             height: 40px;
-            margin-left: 20px; /* Espacement entre le logo et les liens */
+            margin-left: 20px;
+            transition: all 0.3s ease;
         }
-        .navbar-nav .nav-link:active {
-            transform: translateY(0);
-        }
-        .navbar-nav .nav-link:hover .icon-menu {
-            transform: scale(1.1);
+
+        .navbar-logo:hover {
+            transform: rotate(5deg) scale(1.1);
         }
 
         @media (max-width: 768px) {
@@ -104,245 +143,729 @@
                 text-align: center;
             }
             .navbar-toggler {
-                margin-left: auto; /* Bouton du menu à droite */
+                margin-left: auto;
             }
         }
 
-        /* Styles pour les sections */
-        section {
-            padding: 80px 0;
-        }
-
-        /* Ajustement de la section Accueil */
-        #accueil {
-            padding-top: 100px; /* Ajoute une marge en haut pour éviter le chevauchement */
-        }
-
-        .hero {
-            background-image: url('/asset/J.png');
+        /* Hero section améliorée */
+.hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('/asset/J.png');
             background-size: cover;
             background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
+            background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
+            position: relative;
+            overflow: hidden;
+}
+
+        .hero::after {
+            content: '';
+    position: absolute;
+            bottom: 0;
+    left: 0;
+    width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--background-color));
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-        }
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+}
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.3s both;
         }
 
+        .hero .btn {
+            animation: fadeIn 1s ease 0.6s both;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero .btn::before {
+            content: '';
+    position: absolute;
+    top: 0;
+            left: -100%;
+    width: 100%;
+    height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+}
+
+        .hero .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Sections générales */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/assets/pattern.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* À propos amélioré */
         .about img {
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            transform: perspective(1000px) rotateY(0deg);
         }
 
-        .faculties .card, .news .card {
-            transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
-            transform-style: preserve-3d; /* Conserve la perspective 3D */
+        .about img:hover {
+            transform: perspective(1000px) rotateY(10deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .faculties .card:hover, .news .card:hover {
+        /* Statistiques améliorées */
+        .stats {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .stats .card:hover .counter {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        /* Facultés améliorées */
+        .faculties .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateY(0);
+            background: white;
+        }
+
+        .faculties .card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .faculties .card img {
+            transition: all 0.5s ease;
+            filter: grayscale(30%);
+        }
+
+        .faculties .card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .faculties .card-body {
+            position: relative;
+            z-index: 1;
+        }
+
+        .faculties .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .faculties .card:hover::after {
+            height: 10px;
+            background: var(--secondary-color);
+        }
+
+        /* Actualités améliorées */
+        .news {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        .news .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            background: white;
+        }
+
+        .news .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .news .image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news .fixed-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .news .card:hover .fixed-image {
+            transform: scale(1.1);
+        }
+
+        .news .card-body {
+            position: relative;
+        }
+
+        .news .card-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .news .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .news .card:hover .card-title::after {
+            width: 100%;
+        }
+
+        /* Footer amélioré */
         .footer {
-            
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
             color: #fff;
-            padding: 20px 0;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--secondary-color);
+        }
+
+        .footer h4 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
         }
 
         .footer a {
             color: #fff;
             text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
         }
 
         .footer a:hover {
             color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer a:hover::after {
+            width: 100%;
         }
 
         .social-icons a {
-            font-size: 1.5rem;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             margin-right: 10px;
+            transition: all 0.3s ease;
         }
 
-        .newsletter-form .btn {
-            background-color: var(--secondary-color);
-            border: none;
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
         }
 
-        .newsletter-form .btn:hover {
-            background-color: #e65c00;
+        /* Effets globaux */
+        .hover-effect {
+            transition: all 0.4s ease;
+            transform: translateY(0) scale(1);
+            border-radius: 10px;
+        }
+        
+        .hover-effect:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
-        .icon-hover-effect {
-            transition: transform 0.3s ease, color 0.3s ease;
+        .icon-float {
+            animation: float 3s ease-in-out infinite;
+            color: #0d6efd !important;
+            text-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate__fadeInUp {
+            animation-duration: 0.8s;
         }
 
-        .icon-hover-effect:hover, .icon-hover-effect:active {
-            transform: rotate(360deg) scale(1.1);
-            color: #e91e63;
+        /* Owl Carousel custom */
+        .owl-carousel .item {
+            padding: 15px;
         }
-
-        .icon-hover-effect:hover i, .icon-hover-effect:active i {
-            color: #ff5722;
+        
+        .owl-nav {
+            text-align: center;
+            margin-top: 20px;
         }
-
-        .image-container {
-            height: 200px;
-            overflow: hidden;
+        
+        .owl-nav button {
+            background: var(--primary-color) !important;
+            color: white !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50% !important;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .owl-nav button:hover {
+            background: var(--secondary-color) !important;
+            transform: scale(1.1);
+        }
+        
+        /* Bouton scroll to top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .fixed-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .scroll-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
         }
 
-        .icon-card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .icon-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .counter {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        /* Couleur de fond pour la section Actualités et événements */
-        .news {
-            background-color: #f0f0f0 !important; /* Couleur de fond */
-            padding: 80px 0; /* Espacement interne */
-        }
-
-       
-        /* Animation de flottement au chargement de la page */
-        @keyframes float {
-            0%, 100% {
+        /* Animation des cartes */
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
-            50% {
-                transform: translateY(-10px);
-            }
         }
-
-        .faculties .card {
-            animation: float 4s ease-in-out infinite; /* Animation de flottement */
+        
+        .animate-card {
+            animation: cardEntrance 0.8s ease-out forwards;
         }
+        
+        /* Délais d'animation pour les cartes */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .marquee-container {
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .marquee-track {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 200%;
+    }
+    
+    .animate-marquee {
+        animation: scroll 30s linear infinite;
+    }
+    
+    .animate-marquee:nth-child(2) {
+        animation: scroll2 30s linear infinite;
+        animation-delay: 15s;
+    }
+    
+    @keyframes scroll {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-50%); }
+    }
+    
+    @keyframes scroll2 {
+        0% { transform: translateY(50%); }
+        100% { transform: translateY(0); }
+    }
+    
+    .marquee-line {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        width: 100%;
+    }
+    
+    .slide-right {
+        animation: slideInRight 1s ease-out;
+    }
+    
+    .slide-left {
+        animation: slideInLeft 1s ease-out;
+    }
+    
+    @keyframes slideInRight {
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInLeft {
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .marquee-line {
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 20px 0;
+        position: relative;
+    }
+    
+    .marquee-content {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    
+    .right-direction .marquee-content {
+        animation: scrollRight 20s linear infinite;
+    }
+    
+    .left-direction .marquee-content {
+        animation: scrollLeft 20s linear infinite;
+    }
+    
+    @keyframes scrollRight {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    
+    @keyframes scrollLeft {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+    
+    .partner-logo-container {
+        display: inline-block;
+        margin: 0 15px;
+        vertical-align: middle;
+    }
+    
+    .partner-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 50%;
+        border: 2px solid #e9ecef;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .partner-logo:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        border-color: var(--secondary-color);
+    }
+    
+    @media (max-width: 768px) {
+        .partner-logo {
+            width: 70px;
+            height: 70px;
+        }
+        
+        .partner-logo-container {
+            margin: 0 10px;
+        }
+        
+        .right-direction .marquee-content,
+        .left-direction .marquee-content {
+            animation-duration: 15s;
+        }
+    }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="transform: translate(10px, 3px);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="transform: translate(10px, 3px);">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Logo dans la navbar -->
             <a class="navbar-brand" href="#">
-                <i class="fas fa-university"></i> EM GABON
+                <img src="/assets/J.png" class="navbar-logo" alt="Logo de l'université EM GABON"> EM GABON
             </a>
-            <!-- Bouton du menu pour les écrans mobiles -->
-           
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"> <!-- Lien vers le tableau de bord -->
+                        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
                             <i class="fas fa-home icon-menu"></i> Accueil
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/da" routerLinkActive="active"> <!-- Lien vers Futurs Étudiants -->
+                        <a class="nav-link" routerLink="/da" routerLinkActive="active">
                             <i class="fas fa-graduation-cap icon-menu"></i> Futurs Étudiants
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/faq" routerLinkActive="active"> <!-- Lien vers À propos / FAQ -->
+                        <a class="nav-link" routerLink="/faq" routerLinkActive="active">
                             <i class="fas fa-info-circle icon-menu"></i> À propos / FAQ
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/contact" routerLinkActive="active"> <!-- Lien vers Contact -->
+                        <a class="nav-link" routerLink="/contact" routerLinkActive="active">
                             <i class="fas fa-envelope icon-menu"></i> Contact
                         </a>
                     </li>
                 </ul>
-                <!-- Logo à droite -->
-                <img src="/assets/J.png" class="navbar-logo" alt="Logo de l'université EM GABON">
+                
             </div>
         </div>
     </nav>
 
     <!-- Bannière principale -->
-    <section id="accueil" class="hero bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Bienvenue à EM GABON</h1>
-            <p class="lead">Un lieu d'excellence, d'innovation et de diversité.</p>
+    <section id="accueil" class="hero">
+            <div class="container">
+                <h1 class="display-3 animate__animated animate__fadeInDown">Bienvenue à EM GABON</h1>
+                <p class="lead animate__animated animate__fadeInUp">Un lieu d'excellence, d'innovation et de diversité.</p>
+           
         </div>
     </section>
 
     <!-- À propos -->
     <section id="about" class="about py-5">
         <div class="container">
+            <h2 class="text-center mb-5 section-title animate__animated animate__fadeIn">À propos d'EM GABON</h2>
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="display-5">À propos d'EM GABON</h2>
-                    <p class="lead">EM GABON est un établissement d'enseignement supérieur reconnu pour son excellence académique, ses recherches innovantes et son engagement envers la société. Fondée en 2010, elle accueille plus de 500 étudiants chaque année.</p>
+                <div class="col-md-6 animate__animated animate__fadeInLeft">
+                    <p class="lead">EM GABON-UNIVERSITE est un établissement privé d'enseignement supérieur et de recherche de référence, reconnu par l'Etat gabonais et partenaire de l'Agence Nationale des Bourses du Gabon comme de nombre d'institution universitaires et professionnelles de référence, au Gabon et à l'international.</p>
+                    <p>Année après année, nous diversifions nos offres de formations et nos diplômes, pour intégrer les nouveaux métiers et répondre, ainsi, aux besoins sans cesse croissants d'un marché de l'emploi, lui-même de plus en plus exigeant en quantité et en qualité.</p>
+                    <p>C'est pourquoi, aux côtés l'EM-Gabon Business School (EMG-BS) crée en 2010 sous le label EM GABON, se sont ajoutés, l'Ecole de Santé de Libreville (ESL), l'Institut d'Etudes Juridiques et de Science Politique (IEJSP), l'Institut Philippe Maury de l'Audiovisuel et du Cinéma (IPMAC) et l'Institut d'Agronomie et de Sécurité Alimentaire du Gabon (IASAG). Ces entités, formant dans les cycles (L) pour la Licence et (M) pour le Master, ont été complétées par l'ouverture, en février 2022, de l'Ecole Doctorale (ED-EM Gabon Université) constitutive du cycle (D) en prolongement des formations proposées par les différentes composantes mais aussi de l'ingénierie LMD.</p>
+                    
                 </div>
-               
-                <div class="col-md-6">
-                    <img src="/assets/u.jpg" class="img-fluid" alt="EM GABON">
+                <div class="col-md-6 animate__animated animate__fadeInRight">
+                    <img src="/assets/u.jpg" class="img-fluid shadow-lg" alt="EM GABON">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Statistiques -->
+    <section class="stats py-5">
+    <div class="container">
+            <h2 class="text-center mb-5 section-title animate__animated animate__fadeIn">EM GABON en chiffres</h2>
+        <div class="row">
+                <!-- Carte Étudiants diplômés -->
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
+                        <div class="card-body">
+                            <div class="icon mb-3">
+                                <i class="fas fa-user-graduate fa-3x text-primary icon-float"></i>
+                    </div>
+                            <h3 class="counter display-4 fw-bold mb-3" data-target="1000">+1000</h3>
+                            <p class="card-text text-uppercase text-muted">Étudiants diplômés</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carte Enseignants -->
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
+                    <div class="card-body">
+                            <div class="icon mb-3">
+                                <i class="fas fa-chalkboard-teacher fa-3x text-primary icon-float"></i>
+                            </div>
+                            <h3 class="counter display-4 fw-bold mb-3" data-target="50">+50</h3>
+                            <p class="card-text text-uppercase text-muted">Enseignants</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte Taux d'insertion -->
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
+                        <div class="card-body">
+                            <div class="icon mb-3">
+                                <i class="fas fa-briefcase fa-3x text-primary icon-float"></i>
+                    </div>
+                            <h3 class="counter display-4 fw-bold mb-3" data-target="85">85%</h3>
+                            <p class="card-text text-uppercase text-muted">Taux d'insertion professionnelle</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carte Départements -->
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
+                    <div class="card-body">
+                            <div class="icon mb-3">
+                                <i class="fas fa-building fa-3x text-primary icon-float"></i>
+                            </div>
+                            <h3 class="counter display-4 fw-bold mb-3" data-target="7">7</h3>
+                            <p class="card-text text-uppercase text-muted">Départements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="faculties bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Nos écoles et instituts</h2>
-            <div class="row">
-                <!-- Carte École d'Ingénieurs -->
-                <div class="col-md-4 mb-4">
+            <h2 class="text-center mb-5 section-title">Nos écoles et instituts</h2>
+            <div class="row flex-nowrap overflow-auto pb-3" style="scrollbar-width: thin;">
+                <!-- École 1 -->
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
-                            <img src="/assets/A.jpg" style="border-radius: 70%; height:81px;" alt="École d'Ingénieurs">
+                            <img src="/assets/A.jpg" class="img-fluid rounded-circle mb-3" style="height:80px;" alt="École d'Ingénieurs">
                             <h3 class="card-title">École d'Ingénieurs</h3>
                             <a class="btn btn-primary" routerLink="/eil">En savoir plus</a>
                         </div>
                     </div>
                 </div>
-                <!-- Carte École de Management, Gestion et Economie -->
-                <div class="col-md-4 mb-4">
+                
+                <!-- École 2 -->
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
-                            <img src="/assets/B.jpg" style="border-radius: 70%; height:81px;" alt="École de Management, Gestion et Economie">
-                            <h3 class="card-title">École de Management, Gestion et Economie</h3>
+                            <img src="/assets/B.jpg" class="img-fluid rounded-circle mb-3" style="height:80px;" alt="École de Management">
+                            <h3 class="card-title">École de Management</h3>
                             <a routerLink="/bs" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
                 </div>
-                <!-- Carte Institut d'Etudes Juridiques -->
-                <div class="col-md-4 mb-4">
+                
+                 <!-- Carte Institut d'Etudes Juridiques -->
+                 <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/C.jpg" style="border-radius: 70%; height:81px;" alt="Institut d'Etudes Juridiques">
@@ -352,7 +875,7 @@
                     </div>
                 </div>
                 <!-- Carte Institut d'Audiovisuel & Cinéma -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/D.jpg" style="border-radius: 70%; height:81px;" alt="Institut d'Audiovisuel & Cinéma">
@@ -362,7 +885,7 @@
                     </div>
                 </div>
                 <!-- Carte École de Santé -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/F.jpg" style="border-radius: 70%; height:81px;" alt="École de Santé">
@@ -372,7 +895,7 @@
                     </div>
                 </div>
                 <!-- Carte Institut D'Agronomie et de Sécurité Alimentaire -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/G.jpg" style="border-radius: 70%; height:81px;" alt="Institut D'Agronomie et de Sécurité Alimentaire">
@@ -382,7 +905,7 @@
                     </div>
                 </div>
                 <!-- Carte École Doctorale -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/H.jpg" style="border-radius: 70%; height:81px;" alt="École Doctorale">
@@ -395,79 +918,379 @@
         </div>
     </section>
 
-
     <!-- Actualités -->
     <section id="news" class="news py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Actualités et événements</h2>
+            <h2 class="text-center mb-5 section-title animate__animated animate__fadeIn">Actualités et événements</h2>
             <div class="row">
                 <!-- Carte 1 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
                     <div class="card h-100">
                         <div class="image-container">
                             <img src="/assets/X.jpg" class="card-img-top img-fluid fixed-image" alt="Activité des élèves d'Agronomie" loading="lazy">
                         </div>
                         <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 15 Février 2025</small>
+                                <small class="text-primary"><i class="far fa-eye me-1"></i> 245 vues</small>
+                            </div>
                             <h3 class="card-title">Activité des élèves d'Agronomie</h3>
                             <p class="card-text">Pour leur formation pratique dans le cadre du cours de production porcine, les étudiants de L3 spécialité production animale, ont effectué leur journée de travail dans une ferme du Grand Libreville, partenaire de notre Université.</p>
-                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
                         </div>
                     </div>
                 </div>
                 <!-- Carte 2 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                     <div class="card h-100">
                         <div class="image-container">
                             <img src="/assets/T.jpg" class="card-img-top img-fluid fixed-image" alt="TEAM BASKET-BALL EM GABON-UNIVERSITÉ" loading="lazy">
                         </div>
                         <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 10 Février 2025</small>
+                                <small class="text-primary"><i class="far fa-eye me-1"></i> 312 vues</small>
+                            </div>
                             <h3 class="card-title">TEAM BASKET-BALL EM GABON-UNIVERSITÉ</h3>
-                            <p class="card-text">TEAM BASKET-BALL EM GABON-UNIVERSITÉ A ÉCRASÉ LA MODESTE ÉQUIPE DE L’UNIVERSITÉ NUMÉRIQUE DU GABON PAR UN SCORE SANS APPEL DE 158 À 24.</p>
-                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                            <p class="card-text">TEAM BASKET-BALL EM GABON-UNIVERSITÉ A ÉCRASÉ LA MODESTE ÉQUIPE DE L'UNIVERSITÉ NUMÉRIQUE DU GABON PAR UN SCORE SANS APPEL DE 158 À 24.</p>
+                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
                         </div>
                     </div>
                 </div>
                 <!-- Carte 3 -->
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
                     <div class="card h-100">
                         <div class="image-container">
                             <img src="/assets/N.jpg" class="card-img-top img-fluid fixed-image" alt="Séance de travail intense" loading="lazy">
                         </div>
                         <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 5 Février 2025</small>
+                                <small class="text-primary"><i class="far fa-eye me-1"></i> 189 vues</small>
+                            </div>
                             <h3 class="card-title">Séance de travail intense</h3>
-                            <p class="card-text">Ce samedi 15 février 2025, dans l’amphithéâtre Professeur Albert ONDO OSSA de l’EM GABON-UNIVERSITÉ entre les responsables de l’EM GABON-UNIVERSITÉ et les agents civils de l’État des catégories A2 et B1 sans bac souhaitant s’inscrire en Licence ou en Master à l’EM GABON-UNIVERSITÉ conformément à l’orientation de la commission de la Fonction publique.</p>
-                            <a href="#" class="btn btn-primary">Lire la suite</a>
+                            <p class="card-text">Ce samedi 15 février 2025, dans l'amphithéâtre Professeur Albert ONDO OSSA de l'EM GABON-UNIVERSITÉ entre les responsables de l'EM GABON-UNIVERSITÉ et les agents civils de l'État des catégories A2 et B1 sans bac souhaitant s'inscrire en Licence ou en Master à l'EM GABON-UNIVERSITÉ conformément à l'orientation de la commission de la Fonction publique.</p>
+                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+                        <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">Voir toutes les actualités</a>
+                        </div>
+                    </div>
     </section>
 
+    
+   <!-- Partenaires -->
+   <section class="partners py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">Nos Partenaires Principaux</h2>
+        
+        <!-- Ligne 1 (défile vers la droite) -->
+        <div class="marquee-line right-direction">
+            <div class="marquee-content">
+                <!-- Contenu original -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT25.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT24.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT21.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT20.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT19.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <!-- Duplicata pour boucle continue -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT25.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT24.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT21.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT20.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT19.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ligne 2 (défile vers la gauche) -->
+        <div class="marquee-line left-direction">
+            <div class="marquee-content">
+                <!-- Contenu original -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT18.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT17.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT16.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT15.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT14.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <!-- Duplicata pour boucle continue -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT18.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT17.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT16.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT15.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT14.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ligne 3 (défile vers la droite) -->
+        <div class="marquee-line right-direction">
+            <div class="marquee-content">
+                <!-- Contenu original -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT13.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT12.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT11.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT10.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT9.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <!-- Duplicata pour boucle continue -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT13.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT12.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT11.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT10.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT9.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+            </div>
+        </div>
+         <!-- Ligne 2 (défile vers la gauche) -->
+         <div class="marquee-line left-direction">
+            <div class="marquee-content">
+                <!-- Contenu original -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT8.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT7.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT6.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT5.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT4.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <!-- Duplicata pour boucle continue -->
+                <div class="partner-logo-container">
+                    <img src="/assets/PT8.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT7.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT6.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT5.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="/assets/PT4.jpg" class="partner-logo" alt="Partenaire">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
     <!-- Pied de page -->
-    <footer id="contact" class="footer py-5">
+    <footer id="contact" class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h4>Contact</h4>
-                    <p>EM GABON Université</p>
-                    <p>Mindoubé2 - Rond-point pavés - Rue André NDJIBI</p>
-                    <p>Libreville - Gabon</p>
-                    <p>074 35 77 52 / 062 59 15 06 / +241 11 77 25 59</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> EM GABON Université</p>
+                    <p class="ms-4">Mindoubé2 - Rond-point pavés - Rue André NDJIBI</p>
+                    <p class="ms-4">Libreville - Gabon</p>
+                    <p><i class="fas fa-phone me-2"></i> 074 35 77 52 / 062 59 15 06 / +241 11 77 25 59</p>
+                    <p><i class="fas fa-envelope me-2"></i> contact&#64;emgabon.edu</p>
                 </div>
+                
                 <div class="col-md-4 mb-4">
                     <h4>Réseaux sociaux</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="social-icons mb-4">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
                     </div>
+                   
                 </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 EM GABON Université. </p>
+                </div>
+                
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bouton scroll to top -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Animation du compteur
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+            
+            // Navbar scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+                
+                // Show/hide scroll to top button
+                if ($(this).scrollTop() > 300) {
+                    $('.scroll-to-top').addClass('active');
+                } else {
+                    $('.scroll-to-top').removeClass('active');
+                }
+            });
+
+            // Scroll to top
+            $('.scroll-to-top').click(function() {
+                $('html, body').animate({scrollTop: 0}, 'smooth');
+                return false;
+            });
+            
+            // Smooth scrolling for all links
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 70,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Owl Carousel for faculties
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+            
+            // Owl Carousel for testimonials
+            $('.testimonial-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                items: 1,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true
+            });
+            
+            // Animation on scroll
+            function animateOnScroll() {
+                $('.animate-card').each(function() {
+                    var position = $(this).offset().top;
+                    var scroll = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    
+                    if (scroll + windowHeight > position) {
+                        $(this).addClass('animate__animated animate__fadeInUp');
+                    }
+                });
+            }
+            
+            // Run once on page load
+            animateOnScroll();
+            
+            // Run on scroll
+            $(window).scroll(function() {
+                animateOnScroll();
+            });
+            
+            // Hover effect for cards
+            $('.card').hover(
+                function() {
+                    $(this).find('.card-title').css('color', 'var(--secondary-color)');
+                },
+                function() {
+                    $(this).find('.card-title').css('color', '');
+                }
+            );
+        });
+       
+
+    </script>
 </body>

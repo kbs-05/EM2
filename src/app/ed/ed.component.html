@@ -1,168 +1,448 @@
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-      body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f0f4f8;
+          }
+          h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
         }
-        h3 {
-            background-color: #0dcaf0;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .container {
+          h3 {
+              background-color: #0dcaf0;
+              color: white;
+              padding: 10px;
+              text-align: center;
+              border-radius: 5px;
+          }
+          .container {
             display: flex;
-            flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 25px;
             padding: 20px;
+            justify-content: center;
+        }
+          h3:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
+        }
+        h5 {
+            color: var(--secondary-color);
+            margin-top: 10px;
+            font-weight: 600;
         }
         .card {
-            flex: 1 1 calc(50% - 40px); /* Deux cartes par ligne sur les grands écrans */
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 45%;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #0dcaf0;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .card:hover::before {
+            width: 8px;
+            background: #0dcaf0;
+        }
+        
+        .card p {
+            margin-bottom: 12px;
+            padding: 8px 0 8px 15px;
+            border-left: 3px solid var(--secondary-color);
+            transition: all 0.2s ease;
+        }
+        
+        .card p:hover {
+            background-color: #f8f9fa;
+            padding-left: 20px;
+            border-left-color: var(--accent-color);
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin: 30px 0;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            border-radius: 10px;
         }
         th, td {
-            border: 1px solid black;
-            padding: 8px;
+            border: 1px solid #e0e0e0;
+            padding: 12px;
             text-align: center;
+            transition: all 0.2s ease;
         }
         th {
-            background-color: #0dcaf0;
-            text-align: center;
-            color: white;
+            background: #0dcaf0;
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            font-weight: 600;
         }
-        img {
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        td:hover {
+            background-color: #e9ecef;
+        }
+        
+        .institute-logo {
             display: block;
-            margin: 0 auto;
-            max-width: 30%; /* L'image s'adapte à la largeur de l'écran */
+            margin: 20px auto;
+            max-width: 300px;
             height: auto;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
         }
-
-        /* Bouton Retour fixe */
-        .back-button {
+        
+        .institute-logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .intro-text {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-text::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #0dcaf0;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .dark-text {
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+        
+        .warning {
+            color: #ff0505;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+          img {
+              display: block;
+              margin: 0 auto;
+              max-width: 30%; /* L'image s'adapte à la largeur de l'écran */
+              height: auto;
+          }
+  
+          .back-button {
             position: fixed;
             top: 20px;
             left: 20px;
             z-index: 1000;
         }
+        
         .back-button a {
-            background-color: #0dcaf0;
-            color: white;
-            padding: 10px 20px;
+            background:#0dcaf0;
+            color: var(--white);
+            padding: 12px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        /* Media Queries pour les écrans plus petits */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column; /* Une seule carte par ligne sur les petits écrans */
+        
+        .back-button a:hover {
+            background:#0dcaf0;
+            transform: translateX(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        /* Bouton Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0dcaf0;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-top:hover {
+            background:#0dcaf0;
+            transform: scale(1.1);
+        }
+        
+        /* Animation des cartes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Délais d'animation pour chaque carte */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
             .card {
-                flex: 1 1 100%; /* Les cartes prennent toute la largeur */
+                flex: 1 1 100%;
             }
-            h3 {
-                font-size: 1.2rem; /* Taille de police réduite pour les petits écrans */
-            }
+            
             table {
-                font-size: 0.9rem; /* Taille de police réduite pour les tables */
-            }
-            .back-button a {
-                padding: 8px 16px; /* Taille réduite pour le bouton */
-                font-size: 0.9rem;
+                font-size: 0.9em;
             }
         }
-
-        @media (max-width: 480px) {
-            h3 {
-                font-size: 1rem; /* Taille de police encore plus petite pour les très petits écrans */
-            }
-            table {
-                font-size: 0.8rem; /* Taille de police réduite pour les très petits écrans */
-            }
+        
+        @media (max-width: 768px) {
             .back-button a {
-                padding: 6px 12px; /* Taille encore plus réduite pour le bouton */
-                font-size: 0.8rem;
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            
+            .institute-logo {
+                max-width: 200px;
+            }
+            
+            th, td {
+                padding: 8px;
             }
         }
-          /* Ajoutez ce style pour élargir la colonne "NIVEAUX" */
+        
+        @media (max-width: 576px) {
+            h3 {
+                font-size: 1.2rem;
+                padding: 12px;
+            }
+            
+            .intro-text {
+                padding: 20px 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+        
+        /* Style pour les icônes */
+        .fa-icon {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        /* Style pour la colonne NIVEAUX */
         th:nth-child(3),
         td:nth-child(3) {
-                width: 150px; /* Ajustez cette valeur selon vos besoins */
+            width: 150px;
         }
-  </style>
-</head>
-<body>
-  <!-- Bouton Retour fixe -->
-  <div class="back-button">
-      <a href="javascript:history.back()">
-          <i class="fas fa-arrow-left"></i>
-      </a>
-  </div>
+        
+        /* Style pour les cellules avec rowspan */
+        [rowspan] {
+            vertical-align: middle;
+            background-color: #f8f9fa;
+        }
+    </style>
+  </head>
+  <body>
+     <!-- Bouton Retour -->
+     <div class="back-button">
+        <a href="javascript:history.back()">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
 
-  <img src="../assets/H.jpg" alt="Ecole d'Ingénieurs de Libreville">
+    <!-- Bouton Scroll to Top -->
+    <div class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-  <div>
-      <p><strong style="color: #0dcaf0;">L'ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</strong> offre une formation par la recherche, à la et à l'innovation,dans la logique du système Licence-Master-Doctorat(LMD).Elle est placée sous la direction d'un enseignant de rang magistral nommé pour une durée de cinq(5) ans par décision du président du Groupe. L'Ecole Doctorale du Groupe EM GABON-UNIVERSITE a lancé ses formations doctorales en février 2022. Elle est organisée par domaine, mention et spécialités selon les offres de formation et comprend les Unités de Formation Doctorale (UFD)suivantes:</p>
-      <p>UFD Droit et Science Politique;<br>UFD Management, Gestion et Economie;<br>UFD Santé et Envirpnnement;<br>UFD Agriculture, Agronomie, Agro-industries, Alimentation et Environnement;<br>UFD Arts, Spécialité Communiction, Journalisme, Cinématographie et Audiovisuel.</p>
-      
-  </div>
+    <!-- Logo de l'école -->
+    <img src="../assets/H.jpg" alt="ED-3SI - École Doctorale des Sciences Sociales, de la Santé et de l'Ingénieur" class="school-logo animate__animated animate__fadeIn">
 
+    <!-- Texte d'introduction -->
+    <div class="intro-text animate__animated animate__fadeIn">
+        <p><strong style="color: #0dcaf0;">L'ECOLE DOCTORALE DES SCIENCES SOCIALES, DE LA SANTE ET DE L'INGENIEUR(ED-3SI)</strong> offre une formation par la recherche, à la et à l'innovation,dans la logique du système Licence-Master-Doctorat(LMD).Elle est placée sous la direction d'un enseignant de rang magistral nommé pour une durée de cinq(5) ans par décision du président du Groupe. L'Ecole Doctorale du Groupe EM GABON-UNIVERSITE a lancé ses formations doctorales en février 2022. Elle est organisée par domaine, mention et spécialités selon les offres de formation et comprend les Unités de Formation Doctorale (UFD)suivantes:</p>
+    </div>
+
+    <div class="container">
+        <div class="ufd-card animate-card">
+            <div class="ufd-title"><i class="fas fa-balance-scale"></i> UFD Droit et Science Politique</div>
+            <p>Formation doctorale en droit privé, droit public, science politique et relations internationales.</p>
+        </div>
+        
+        <div class="ufd-card animate-card">
+            <div class="ufd-title"><i class="fas fa-chart-line"></i> UFD Management, Gestion et Economie</div>
+            <p>Recherche en sciences de gestion, économie appliquée et management stratégique.</p>
+        </div>
+        
+        <div class="ufd-card animate-card">
+            <div class="ufd-title"><i class="fas fa-heartbeat"></i> UFD Santé et Environnement</div>
+            <p>Approche interdisciplinaire des enjeux santé-environnement et développement durable.</p>
+        </div>
+        
+        <div class="ufd-card animate-card">
+            <div class="ufd-title"><i class="fas fa-leaf"></i> UFD Agriculture, Agronomie, Agro-industries</div>
+            <p>Recherche en sécurité alimentaire, agronomie tropicale et développement agricole.</p>
+        </div>
+        
+        <div class="ufd-card animate-card">
+            <div class="ufd-title"><i class="fas fa-film"></i> UFD Arts, Communication et Audiovisuel</div>
+            <p>Recherche-création en cinéma, journalisme et nouvelles technologies de communication.</p>
+        </div>
+    </div>
+
+    <h3 class="animate__animated animate__fadeIn"><strong>GRILLE TARIFAIRE</strong></h3>
+
+    <div style="overflow-x: auto; padding: 0 20px;">
+        <table class="animate__animated animate__fadeInUp">
+            <tr>
+                <th>CONDITIONS D'ADMISSION</th>
+                <th>DIPLÔMES</th>
+                <th>NIVEAUX</th>
+                <th>FRAIS D'INSCRIPTION</th>
+                <th>FRAIS DE SCOLARITÉ</th>
+                <th>DÉBOUCHÉS PROFESSIONNELS</th>
+            </tr>
+            <tr>
+                <td rowspan="4">MASTER<br>sur examen de dossier</td>
+                <td rowspan="4">DOCTORAT</td>
+                <td>MASTER 2</td>
+                <td>100 000</td>
+                <td>1 600 000 (160 000/mois)</td>
+                <td rowspan="4">
+                    <ul class="ufd-list">
+                        <li>Secteur public (Fonctionnaire)</li>
+                        <li>Secteur privé</li>
+                        <li>Auto emploi</li>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>D1</td>
+                <td>200 000</td>
+                <td>1 600 000 (160 000/mois)</td>
+            </tr>
+            <tr>
+                <td>D2</td>
+                <td>200 000</td>
+                <td>1 900 000 (190 000/mois)</td>
+            </tr>
+            <tr>
+                <td>D3</td>
+                <td>200 000</td>
+                <td>2 500 000 (250 000/mois)<br><span class="warning">hors frais de soutenance</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Script pour le bouton de retour en haut de page
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation des éléments au défilement
+        const animateElements = document.querySelectorAll('.animate-card, .animate__animated');
+        
+        const animateOnScroll = function() {
+            for (let i = 0; i < animateElements.length; i++) {
+                const element = animateElements[i];
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            }
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
   
-
-  <h3><strong>GRILLE TARIFAIRE</strong></h3>
-
-  <table>
-      <tr style="color: white;">
-          <th>CONDITIONS D’ADMISSION</th>
-          <th>DIPLÔMES</th>
-          <th>NIVEAUX</th>
-          <th>FRAIS D’INSCRIPTION</th>
-          <th>FRAIS DE SCOLARITE</th>
-          <th>DEBOUCHES PROFESSIONNELS</th>
-      </tr>
-      <tr>
-          <td rowspan="12">MASTER<p>sur examen de dossier</p></td>
-          <td rowspan="12">DOCTORAT</td>
-          <td>MASTER 2 </td>
-          <td>100 000</td>
-          <td>1 600 000 (160 000/mois)</td>
-          <td rowspan="12">- Secteur public(Fonctionnaire)<br>- Secteur privé<br>- Auto emploi</td>
-      </tr>
-      <tr>
-          <td>D1</td>
-          <td>200 000</td>
-          <td>1 600 000 (160 000/mois)</td>
-      </tr>
-      <tr>
-          <td>D2</td>
-          <td>200 000</td>
-          <td>1 900 000 (190 000/mois)</td>
-      </tr>
-      <tr>
-          
-          <td>D3</td>
-          <td>200 000</td>
-          <td>2 500 000 (250 000/mois) <br><p style="color: #ff0505;">hors frais de soutenance</p></td>
-          
-      </tr>
-     
-  </table>
-
-</body>
+  </body>

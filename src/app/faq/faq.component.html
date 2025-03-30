@@ -86,7 +86,7 @@
                 
                 <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
                   <div class="mb-3">
-                    <label for="name" class="form-label">Nom complet</label>
+                    <label for="name" class="form-label">Nom </label>
                     <input type="text" class="form-control" id="name" 
                            [(ngModel)]="formData.name" name="name" required
                            [class.is-invalid]="contactForm.submitted && !formData.name">
