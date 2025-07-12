@@ -1,3 +1,4 @@
 <main>
-  <router-outlet></router-outlet>
+  <app-splash-screen *ngIf="showSplash"></app-splash-screen>
+<router-outlet *ngIf="!showSplash"></router-outlet>
 </main>

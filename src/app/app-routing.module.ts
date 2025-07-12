@@ -13,6 +13,8 @@ import { IACComponent } from './iac/iac.component';
 import { ESLComponent } from './esl/esl.component';
 import { IASAComponent } from './iasa/iasa.component';
 import { EDComponent } from './ed/ed.component';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Chemin vide -> HomeComponent

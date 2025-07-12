@@ -711,6 +711,16 @@
             animation-duration: 15s;
         }
     }
+    #stats-section .card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+#stats-section .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 <body>
@@ -779,64 +789,72 @@
     </section>
 
     <!-- Statistiques -->
-    <section class="stats py-5">
-    <div class="container">
-            <h2 class="text-center mb-5 section-title animate__animated animate__fadeIn">EM GABON en chiffres</h2>
-        <div class="row">
-                <!-- Carte Étudiants diplômés -->
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
-                        <div class="card-body">
-                            <div class="icon mb-3">
-                                <i class="fas fa-user-graduate fa-3x text-primary icon-float"></i>
-                    </div>
-                            <h3 class="counter display-4 fw-bold mb-3" data-target="1000">+1000</h3>
-                            <p class="card-text text-uppercase text-muted">Étudiants diplômés</p>
-                        </div>
-                    </div>
+    <section class="stats py-5" id="stats" #countersSection>
+        <div class="container">
+          <h2 class="text-center mb-5 section-title animate__animated">EM GABON en chiffres</h2>
+          <div class="row">
+            <!-- Carte Étudiants diplômés -->
+            <div class="col-md-3 mb-4" #animateCard>
+              <div class="card h-100 text-center border-0 shadow-sm hover-effect">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="fas fa-user-graduate fa-3x text-primary icon-float"></i>
+                  </div>
+                  <h3 class="display-4 fw-bold mb-3 counter">
+                    {{ stats[0].prefix }}{{ stats[0].current }}
+                  </h3>
+                  <p class="card-text text-uppercase text-muted">{{ stats[0].text }}</p>
                 </div>
-                
-                <!-- Carte Enseignants -->
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
-                    <div class="card-body">
-                            <div class="icon mb-3">
-                                <i class="fas fa-chalkboard-teacher fa-3x text-primary icon-float"></i>
-                            </div>
-                            <h3 class="counter display-4 fw-bold mb-3" data-target="50">+50</h3>
-                            <p class="card-text text-uppercase text-muted">Enseignants</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carte Taux d'insertion -->
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
-                        <div class="card-body">
-                            <div class="icon mb-3">
-                                <i class="fas fa-briefcase fa-3x text-primary icon-float"></i>
-                    </div>
-                            <h3 class="counter display-4 fw-bold mb-3" data-target="85">85%</h3>
-                            <p class="card-text text-uppercase text-muted">Taux d'insertion professionnelle</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Carte Départements -->
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center border-0 shadow-sm animate__animated animate__fadeInUp hover-effect">
-                    <div class="card-body">
-                            <div class="icon mb-3">
-                                <i class="fas fa-building fa-3x text-primary icon-float"></i>
-                            </div>
-                            <h3 class="counter display-4 fw-bold mb-3" data-target="7">7</h3>
-                            <p class="card-text text-uppercase text-muted">Départements</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+            
+            <!-- Carte Enseignants -->
+            <div class="col-md-3 mb-4" #animateCard>
+              <div class="card h-100 text-center border-0 shadow-sm hover-effect">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="fas fa-chalkboard-teacher fa-3x text-primary icon-float"></i>
+                  </div>
+                  <h3 class="display-4 fw-bold mb-3 counter">
+                    {{ stats[1].prefix }}{{ stats[1].current }}
+                  </h3>
+                  <p class="card-text text-uppercase text-muted">{{ stats[1].text }}</p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Carte Taux d'insertion -->
+            <div class="col-md-3 mb-4" #animateCard>
+              <div class="card h-100 text-center border-0 shadow-sm hover-effect">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="fas fa-briefcase fa-3x text-primary icon-float"></i>
+                  </div>
+                  <h3 class="display-4 fw-bold mb-3 counter">
+                    {{ stats[2].current }}{{ stats[2].suffix }}
+                  </h3>
+                  <p class="card-text text-uppercase text-muted">{{ stats[2].text }}</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Carte Départements -->
+            <div class="col-md-3 mb-4" #animateCard>
+              <div class="card h-100 text-center border-0 shadow-sm hover-effect">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="fas fa-building fa-3x text-primary icon-float"></i>
+                  </div>
+                  <h3 class="display-4 fw-bold mb-3 counter">
+                    {{ stats[3].prefix }}{{ stats[3].current }}
+                  </h3>
+                  <p class="card-text text-uppercase text-muted">{{ stats[3].text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
     
     <section class="faculties bg-light py-5">
         <div class="container">
@@ -1187,110 +1205,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            // Animation du compteur
-            $('.counter').counterUp({
-                delay: 10,
-                time: 1000
-            });
-            
-            // Navbar scroll effect
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('.navbar').addClass('scrolled');
-                } else {
-                    $('.navbar').removeClass('scrolled');
-                }
-                
-                // Show/hide scroll to top button
-                if ($(this).scrollTop() > 300) {
-                    $('.scroll-to-top').addClass('active');
-                } else {
-                    $('.scroll-to-top').removeClass('active');
-                }
-            });
-
-            // Scroll to top
-            $('.scroll-to-top').click(function() {
-                $('html, body').animate({scrollTop: 0}, 'smooth');
-                return false;
-            });
-            
-            // Smooth scrolling for all links
-            $('a[href*="#"]').on('click', function(e) {
-                e.preventDefault();
-                
-                $('html, body').animate(
-                    {
-                        scrollTop: $($(this).attr('href')).offset().top - 70,
-                    },
-                    500,
-                    'linear'
-                );
-            });
-            
-            // Owl Carousel for faculties
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 2
-                    },
-                    1000: {
-                        items: 3
-                    }
-                }
-            });
-            
-            // Owl Carousel for testimonials
-            $('.testimonial-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: true,
-                items: 1,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true
-            });
-            
-            // Animation on scroll
-            function animateOnScroll() {
-                $('.animate-card').each(function() {
-                    var position = $(this).offset().top;
-                    var scroll = $(window).scrollTop();
-                    var windowHeight = $(window).height();
-                    
-                    if (scroll + windowHeight > position) {
-                        $(this).addClass('animate__animated animate__fadeInUp');
-                    }
-                });
-            }
-            
-            // Run once on page load
-            animateOnScroll();
-            
-            // Run on scroll
-            $(window).scroll(function() {
-                animateOnScroll();
-            });
-            
-            // Hover effect for cards
-            $('.card').hover(
-                function() {
-                    $(this).find('.card-title').css('color', 'var(--secondary-color)');
-                },
-                function() {
-                    $(this).find('.card-title').css('color', '');
-                }
-            );
-        });
-       
-
-    </script>
+   
 </body>

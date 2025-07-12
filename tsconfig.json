@@ -5,7 +5,7 @@
     "module": "ES2022",  // Doit être ES2015 ou plus récent pour 'bundler'
     "lib": ["ES2022", "DOM"],
     "moduleResolution": "bundler",
-    "emitDecoratorMetadata": true,  // Nécessaire pour Angular
+      // Nécessaire pour Angular
     "experimentalDecorators": true,  // Nécessaire pour Angular
     
     "baseUrl": "./",
@@ -23,7 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "types": ["node"],
+    "types": ["jest", "node"],
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist/out-tsc",
@@ -38,6 +38,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "strictNullInputTypes": true,
+    "emitDecoratorMetadata": true,
     "strictOutputEventTypes": true
   }
 }

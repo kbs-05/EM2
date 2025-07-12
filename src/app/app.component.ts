@@ -8,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EM';
+  showSplash = true;
+
+  constructor() {
+    setTimeout(() => {
+      this.showSplash = false;
+    }, 3000);
+  }
+
 }

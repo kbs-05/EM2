@@ -23,6 +23,7 @@ import { IACComponent } from './iac/iac.component';
 import { ESLComponent } from './esl/esl.component';
 import { IASAComponent } from './iasa/iasa.component';
 import { EDComponent } from './ed/ed.component';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { EDComponent } from './ed/ed.component';
     HomeComponent,
     DashboardComponent,
     DAComponent,
-   
+    
     ContactComponent,
     EILComponent,
     BSComponent,
@@ -39,6 +40,7 @@ import { EDComponent } from './ed/ed.component';
     ESLComponent,
     IASAComponent,
     EDComponent,
+    SplashScreenComponent,
   ],
   imports: [
     BrowserModule,
