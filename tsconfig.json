@@ -38,7 +38,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "strictNullInputTypes": true,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "strictOutputEventTypes": true
   }
 }
