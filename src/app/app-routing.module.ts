@@ -14,6 +14,8 @@ import { ESLComponent } from './esl/esl.component';
 import { IASAComponent } from './iasa/iasa.component';
 import { EDComponent } from './ed/ed.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { ActualiteComponent } from './actualite/actualite.component';
+import { IJCLComponent } from './ijcl/ijcl.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'esl', component: ESLComponent },
   { path: 'iasa', component: IASAComponent },
   { path: 'ed', component: EDComponent },
+  { path: 'ijcl', component: IJCLComponent },
+  { path: 'actualite/:id', component: ActualiteComponent },
   { path: '**', redirectTo: '' } // Redirection pour les routes inconnues vers la page d'accueil
 ];
 

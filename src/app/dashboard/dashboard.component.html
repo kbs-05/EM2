@@ -223,7 +223,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/assets/pattern.png');
+            background: url('/assets/J.png');
             opacity: 0.03;
             pointer-events: none;
         }
@@ -922,83 +922,53 @@
                         </div>
                     </div>
                 </div>
-                <!-- Carte École Doctorale -->
-                <div class="col-md-4 mb-4" style="min-width: 300px;">
+                 <div class="col-md-4 mb-4" style="min-width: 300px;">
                     <div class="card h-100 text-center">
                         <div class="card-body">
-                            <img src="/assets/H.jpg" style="border-radius: 70%; height:81px;" alt="École Doctorale">
-                            <h3 class="card-title">École Doctorale</h3>
-                            <a routerLink="/ed" class="btn btn-primary">En savoir plus</a>
+                            <img src="/assets/PT26.jpeg" style="border-radius: 70%; height:81px;" alt="Institut D'Agronomie et de Sécurité Alimentaire">
+                            <h3 class="card-title">Institut D'Agronomie et de Sécurité Alimentaire</h3>
+                            <a routerLink="/ijcl" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Actualités -->
-    <section id="news" class="news py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 section-title animate__animated animate__fadeIn">Actualités et événements</h2>
-            <div class="row">
-                <!-- Carte 1 -->
-                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp">
-                    <div class="card h-100">
-                        <div class="image-container">
-                            <img src="/assets/X.jpg" class="card-img-top img-fluid fixed-image" alt="Activité des élèves d'Agronomie" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 15 Février 2025</small>
-                                <small class="text-primary"><i class="far fa-eye me-1"></i> 245 vues</small>
-                            </div>
-                            <h3 class="card-title">Activité des élèves d'Agronomie</h3>
-                            <p class="card-text">Pour leur formation pratique dans le cadre du cours de production porcine, les étudiants de L3 spécialité production animale, ont effectué leur journée de travail dans une ferme du Grand Libreville, partenaire de notre Université.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Carte 2 -->
-                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                    <div class="card h-100">
-                        <div class="image-container">
-                            <img src="/assets/T.jpg" class="card-img-top img-fluid fixed-image" alt="TEAM BASKET-BALL EM GABON-UNIVERSITÉ" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 10 Février 2025</small>
-                                <small class="text-primary"><i class="far fa-eye me-1"></i> 312 vues</small>
-                            </div>
-                            <h3 class="card-title">TEAM BASKET-BALL EM GABON-UNIVERSITÉ</h3>
-                            <p class="card-text">TEAM BASKET-BALL EM GABON-UNIVERSITÉ A ÉCRASÉ LA MODESTE ÉQUIPE DE L'UNIVERSITÉ NUMÉRIQUE DU GABON PAR UN SCORE SANS APPEL DE 158 À 24.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Carte 3 -->
-                <div class="col-md-4 mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                    <div class="card h-100">
-                        <div class="image-container">
-                            <img src="/assets/N.jpg" class="card-img-top img-fluid fixed-image" alt="Séance de travail intense" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 5 Février 2025</small>
-                                <small class="text-primary"><i class="far fa-eye me-1"></i> 189 vues</small>
-                            </div>
-                            <h3 class="card-title">Séance de travail intense</h3>
-                            <p class="card-text">Ce samedi 15 février 2025, dans l'amphithéâtre Professeur Albert ONDO OSSA de l'EM GABON-UNIVERSITÉ entre les responsables de l'EM GABON-UNIVERSITÉ et les agents civils de l'État des catégories A2 et B1 sans bac souhaitant s'inscrire en Licence ou en Master à l'EM GABON-UNIVERSITÉ conformément à l'orientation de la commission de la Fonction publique.</p>
-                            <a href="#" class="btn btn-primary stretched-link">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                        <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline-primary">Voir toutes les actualités</a>
-                        </div>
-                    </div>
-    </section>
+ <!-- Actualités -->
+<section class="actualites my-4">
+  <h2 class="mb-3">Actualités</h2>
 
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let actu of actualites$ | async">
+      <div class="card h-100 position-relative">
+        <img *ngIf="actu.featuredImage" [src]="actu.featuredImage" class="card-img-top" alt="{{ actu.titre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ actu.titre }}</h5>
+          <!-- Limiter l'extrait à 100 caractères -->
+          <p class="card-text">
+            {{ actu.excerpt | slice:0:100 }}{{ actu.excerpt.length > 100 ? '...' : '' }}
+          </p>
+          <a [routerLink]="['/actualite', actu.id]" class="btn btn-primary mt-2">
+            Lire la suite
+          </a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{ actu.date | date:'mediumDate' }}</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+
+
+    
     
    <!-- Partenaires -->
    <section class="partners py-5 bg-light">

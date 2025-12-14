@@ -1,13 +1,12 @@
 export const environment = {
-    production: true,
-     apiUrl: 'https://api.votredomaine.com/api',
-    firebase: {
-        apiKey: "AIzaSyBK7IolvMKSaHLZQh3hY4K64FkDFqEPxC8",
-        authDomain: "em-gabon-3-2a546.firebaseapp.com",
-        projectId: "em-gabon-3-2a546",
-        storageBucket: "em-gabon-3-2a546.firebasestorage.app",
-        messagingSenderId: "117984331029",
-        appId: "1:117984331029:web:4062ae6de230f1c9ae951c"
-        
-    },
-  };
+  production: true,
+  firebase: {
+    apiKey: "AIzaSyBpY3J7Gmy1-XTbYCrqmjheDKY7ClveFx8",
+    authDomain: "em02-70489.firebaseapp.com",
+    projectId: "em02-70489",
+    storageBucket: "em02-70489.appspot.com",
+    messagingSenderId: "874738673672",
+    appId: "1:874738673672:web:1aa9b35d0891de430d09bd",
+    measurementId: "G-V53L7M03QY"
+  }
+};

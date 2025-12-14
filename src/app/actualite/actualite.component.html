@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualité - Détails</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+  <style>
+    body { background-color: #f8f9fa; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+    .article-container { max-width: 800px; margin: 0 auto; }
+    
+    .article-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; border-radius: 20px; padding: 3rem 2rem;
+      margin-bottom: 2rem; position: relative; overflow: hidden;
+    }
+    .article-header::before {
+      content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.1);
+    }
+    
+    .category-badge {
+      background:rgba(255,255,255,0.2); backdrop-filter:blur(10px);
+      color:white; padding:.5rem 1.5rem; border-radius:50px;
+      font-weight:600; margin-bottom:1rem; display:inline-block;
+    }
+    
+    .article-image {
+      height:450px; width:100%; object-fit:cover; border-radius:15px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2); margin-bottom:2rem;
+      cursor:pointer; transition: transform 0.3s ease;
+    }
+    .article-image:hover { transform: scale(1.03); }
+    
+    .article-content {
+      background:white; padding:3rem; border-radius:20px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .excerpt-box {
+      background:linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color:white; padding:2rem; border-radius:15px; margin:2rem 0;
+      font-size:1.2rem; line-height:1.6; font-weight:500;
+    }
+
+    .highlight-quote {
+      border-left:4px solid #667eea; padding-left:1.5rem;
+      margin:2.5rem 0; font-style:italic;
+    }
+
+    .action-buttons { display:flex; gap:1rem; justify-content:center; margin-top:3rem; }
+    .btn-action { padding:0.75rem 2rem; border-radius:50px; font-weight:600; }
+
+    .fade-in { animation:fadeIn 0.8s ease-out; }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+    .back-button {
+      position:fixed; top:2rem; left:2rem; padding:.75rem 1.5rem;
+      border-radius:50px; background:white; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      display:flex; align-items:center; gap:.5rem; text-decoration:none; color:#4a5568;
+    }
+    .back-button:hover { background:#667eea; color:white; transform:translateX(-5px); }
+
+    /* LIGHTBOX PERSONNALISÉ */
+    #lightbox {
+      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.9); z-index:1050;
+      justify-content:center; align-items:center;
+      cursor: zoom-out;
+    }
+    #lightbox img {
+      max-width:90%; max-height:90%;
+      border-radius:10px;
+      box-shadow:0 0 30px rgba(0,0,0,0.5);
+      animation: zoomIn 0.5s ease;
+    }
+    @keyframes zoomIn { from {transform:scale(0.8); opacity:0;} to {transform:scale(1); opacity:1;} }
+  </style>
+</head>
+
+<body>
+
+<!-- BOUTON RETOUR -->
+<a [routerLink]="['/dashboard']" class="back-button fade-in">
+  <i class="bi bi-arrow-left"></i> Retour
+</a>
+
+<!-- ACTUALITÉ -->
+<div *ngIf="actualite$ | async as actu" class="article-container py-5">
+
+  <!-- HEADER -->
+  <div class="article-header fade-in">
+    <span *ngIf="actu.category" class="category-badge">{{ actu.category }}</span>
+    <h1 class="display-4 fw-bold text-white">{{ actu.title }}</h1>
+
+    <div class="d-flex gap-4 mt-3 flex-wrap">
+      <div><i class="bi bi-calendar"></i> {{ actu.date | date:'longDate' }}</div>
+      
+    </div>
+  </div>
+
+  <!-- IMAGE PRINCIPALE OU PREMIÈRE IMAGE DU CONTENT -->
+  <img *ngIf="actu.featuredImage; else firstContentImage"
+       [src]="actu.featuredImage"
+       class="article-image fade-in"
+       (click)="openLightbox(actu.featuredImage)">
+
+  <ng-template #firstContentImage>
+    <img *ngIf="actu.content.length && actu.content[0].type === 'image'"
+         [src]="actu.content[0].content"
+         class="article-image fade-in"
+         (click)="openLightbox(actu.content[0].content)">
+  </ng-template>
+
+  <!-- CONTENU -->
+  <div class="article-content fade-in">
+
+    <!-- EXCERPT -->
+    <div *ngIf="actu.excerpt" class="excerpt-box">
+      <i class="bi bi-quote"></i> {{ actu.excerpt }}
+    </div>
+
+    <!-- BLOCS DE CONTENU -->
+    <div *ngFor="let block of actu.content" class="mb-4">
+      <ng-container [ngSwitch]="block.type">
+        <p *ngSwitchCase="'text'" class="fs-5">{{ block.content }}</p>
+        <div *ngSwitchCase="'image'" class="mb-3">
+          <img [src]="block.content"
+               class="img-fluid rounded shadow"
+               alt="Image article"
+               (click)="openLightbox(block.content)">
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" (click)="closeLightbox()">
+  <img id="lightboxImage" src="">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

@@ -16,6 +16,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { provideImgixLoader } from '@angular/common';
+import { environment } from '../environments/environment';
 import { EILComponent } from './eil/eil.component';
 import { BSComponent } from './bs/bs.component';
 import { IEJComponent } from './iej/iej.component';
@@ -24,14 +25,15 @@ import { ESLComponent } from './esl/esl.component';
 import { IASAComponent } from './iasa/iasa.component';
 import { EDComponent } from './ed/ed.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { ActualiteComponent } from './actualite/actualite.component';
+import { IJCLComponent } from './ijcl/ijcl.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DashboardComponent,
     DAComponent,
-    
     ContactComponent,
     EILComponent,
     BSComponent,
@@ -41,17 +43,20 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
     IASAComponent,
     EDComponent,
     SplashScreenComponent,
+    ActualiteComponent,
+    IJCLComponent,
+    DashboardComponent, // bien ajouté ici
   ],
   imports: [
     BrowserModule,
-    FormsModule, // Ajouté ici
-    HttpClientModule, // Ajouté ici
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot([])
+    CommonModule,           // Pour *ngIf, *ngFor, pipes
+    RouterModule.forRoot([]) // Pour routerLink
   ],
   providers: [
-    provideRouter([]),
-    provideFirebaseApp(() => initializeApp({ /* votre configuration Firebase */ })),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
@@ -59,4 +64,4 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
