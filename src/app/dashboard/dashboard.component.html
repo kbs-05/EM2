@@ -721,6 +721,25 @@
     opacity: 1;
     transform: translateY(0);
 }
+.actualites .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.actualites .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.actualites .card-text {
+    flex-grow: 1;
+}
+
+.actualites .btn {
+    margin-top: auto;
+}
     </style>
 </head>
 <body>
@@ -778,7 +797,7 @@
                 <div class="col-md-6 animate__animated animate__fadeInLeft">
                     <p class="lead">EM GABON-UNIVERSITE est un établissement privé d'enseignement supérieur et de recherche de référence, reconnu par l'Etat gabonais et partenaire de l'Agence Nationale des Bourses du Gabon comme de nombre d'institution universitaires et professionnelles de référence, au Gabon et à l'international.</p>
                     <p>Année après année, nous diversifions nos offres de formations et nos diplômes, pour intégrer les nouveaux métiers et répondre, ainsi, aux besoins sans cesse croissants d'un marché de l'emploi, lui-même de plus en plus exigeant en quantité et en qualité.</p>
-                    <p>C'est pourquoi, aux côtés l'EM-Gabon Business School (EMG-BS) crée en 2010 sous le label EM GABON, se sont ajoutés, l'Ecole de Santé de Libreville (ESL), l'Institut d'Etudes Juridiques et de Science Politique (IEJSP), l'Institut Philippe Maury de l'Audiovisuel et du Cinéma (IPMAC) et l'Institut d'Agronomie et de Sécurité Alimentaire du Gabon (IASAG). Ces entités, formant dans les cycles (L) pour la Licence et (M) pour le Master, ont été complétées par l'ouverture, en février 2022, de l'Ecole Doctorale (ED-EM Gabon Université) constitutive du cycle (D) en prolongement des formations proposées par les différentes composantes mais aussi de l'ingénierie LMD.</p>
+                    <p>C'est pourquoi, aux côtés de l'EM-Gabon Business School (EMG-BS) créée en 2010 sous le label EM GABON, se sont ajoutés, l'Ecole de Santé de Libreville (ESL), l'Institut d'Etudes Juridiques et de Science Politique (IEJSP), l'Institut Philippe Maury de l'Audiovisuel et du Cinéma (IPMAC) et l'Institut d'Agronomie et de Sécurité Alimentaire du Gabon (IASAG). Ces entités, formant dans les cycles (L) pour la Licence et (M) pour le Master, ont été complétées par l'ouverture, en février 2022, de l'Ecole Doctorale (ED-EM Gabon Université) constitutive du cycle (D) en prolongement des formations proposées par les différentes composantes mais aussi de l'ingénierie LMD.</p>
                     
                 </div>
                 <div class="col-md-6 animate__animated animate__fadeInRight">
@@ -865,7 +884,7 @@
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/A.jpg" class="img-fluid rounded-circle mb-3" style="height:80px;" alt="École d'Ingénieurs">
-                            <h3 class="card-title">École d'Ingénieurs</h3>
+                            <h3 class="card-title">École d'Ingénieurs de Libreville</h3>
                             <a class="btn btn-primary" routerLink="/eil">En savoir plus</a>
                         </div>
                     </div>
@@ -907,7 +926,7 @@
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/F.jpg" style="border-radius: 70%; height:81px;" alt="École de Santé">
-                            <h3 class="card-title">École de Santé</h3>
+                            <h3 class="card-title">École de Santé de Libreville</h3>
                             <a routerLink="/esl" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
@@ -926,7 +945,7 @@
                     <div class="card h-100 text-center">
                         <div class="card-body">
                             <img src="/assets/PT26.jpeg" style="border-radius: 70%; height:81px;" alt="Institut D'Agronomie et de Sécurité Alimentaire">
-                            <h3 class="card-title">Institut D'Agronomie et de Sécurité Alimentaire</h3>
+                            <h3 class="card-title">Institut de Journalisme et de Communication de Libreville</h3>
                             <a routerLink="/ijcl" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
@@ -937,32 +956,43 @@
     </section>
 
     <!-- Actualités -->
- <!-- Actualités -->
+<!-- Actualités -->
 <section class="actualites my-4">
   <h2 class="mb-3">Actualités</h2>
 
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let actu of actualites$ | async">
       <div class="card h-100 position-relative">
-        <img *ngIf="actu.featuredImage" [src]="actu.featuredImage" class="card-img-top" alt="{{ actu.titre }}">
+
+        <img *ngIf="actu.featuredImage"
+             [src]="actu.featuredImage"
+             class="card-img-top"
+             alt="{{ actu.titre }}">
+
         <div class="card-body">
           <h5 class="card-title">{{ actu.titre }}</h5>
-          <!-- Limiter l'extrait à 100 caractères -->
+
           <p class="card-text">
             {{ actu.excerpt | slice:0:100 }}{{ actu.excerpt.length > 100 ? '...' : '' }}
           </p>
-          <a [routerLink]="['/actualite', actu.id]" class="btn btn-primary mt-2">
+
+          <a [routerLink]="['/actualite', actu.id]"
+             class="btn btn-primary">
             Lire la suite
           </a>
         </div>
+
         <div class="card-footer">
-          <small class="text-muted">{{ actu.date | date:'mediumDate' }}</small>
+          <small class="text-muted">
+            {{ actu.date | date:'mediumDate' }}
+          </small>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
-
 </section>
+
 
 
 
